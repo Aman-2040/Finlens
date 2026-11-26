@@ -2,8 +2,27 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 
-const cardsData = require("./data/cards.json");
-const offersData = require("./data/loan-offers.json");
+// Load card data: try new JSON file, fallback to existing data file
+const fs = require("fs");
+let cardsData = [];
+try {
+  const newCardsPath = path.join(__dirname, "india_credit_debit_cards_154.json");
+  cardsData = JSON.parse(fs.readFileSync(newCardsPath, "utf8"));
+  console.log("Loaded card data from india_credit_debit_cards_154.json");
+} catch (e) {
+  console.warn("Failed to load new card JSON, using fallback cards.json");
+  cardsData = require("./data/cards.json");
+}
+// Load loan data: try new JSON file, fallback to existing data file
+let offersData = [];
+try {
+  const newLoanPath = path.join(__dirname, "aura_wealth_indian_loan_database.json");
+  offersData = JSON.parse(fs.readFileSync(newLoanPath, "utf8"));
+  console.log("Loaded loan data from aura_wealth_indian_loan_database.json");
+} catch (e) {
+  console.warn("Failed to load new loan JSON, using fallback loan-offers.json");
+  offersData = require("./data/loan-offers.json");
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;

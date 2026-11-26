@@ -1,0 +1,4248 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "region": "India",
+    "currency": "INR",
+    "last_updated": "2026-11-26",
+    "total_credit_cards": 104,
+    "total_debit_cards": 52,
+    "total_cards": 156,
+    "issuers_covered": [
+      "AU Small Finance Bank",
+      "American Express",
+      "Axis Bank",
+      "BOBCARD",
+      "Bank of Baroda",
+      "Canara Bank",
+      "Federal Bank",
+      "HDFC Bank",
+      "HSBC India",
+      "ICICI Bank",
+      "IDFC FIRST Bank",
+      "IndusInd Bank",
+      "Kotak Mahindra Bank",
+      "Punjab National Bank",
+      "RBL Bank",
+      "SBI",
+      "SBI Card",
+      "Standard Chartered",
+      "YES Bank"
+    ]
+  },
+  "credit_cards": [
+    {
+      "card_id": "cc_001_hdfc_bank_infinia_metal_edition",
+      "card_name": "Infinia Metal Edition",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 12500,
+        "annual_fee": 12500,
+        "annual_fee_waiver_spend": 1000000,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "rewards": {
+        "summary": "5 points per ₹150",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Domestic & International"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 3600000
+      }
+    },
+    {
+      "card_id": "cc_002_hdfc_bank_diners_club_black_metal",
+      "card_name": "Diners Club Black Metal",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "Diners Club",
+      "tier": "Black",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 10000,
+        "annual_fee": 10000,
+        "annual_fee_waiver_spend": 800000,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "rewards": {
+        "summary": "5 points per ₹150",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Domestic & International"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 2500000
+      }
+    },
+    {
+      "card_id": "cc_003_hdfc_bank_regalia_gold",
+      "card_name": "Regalia Gold",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 2500,
+        "annual_fee": 2500,
+        "annual_fee_waiver_spend": 400000,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "rewards": {
+        "summary": "4 points per ₹150",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "12 Domestic, 6 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_004_hdfc_bank_millennia_credit_card",
+      "card_name": "Millennia Credit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 1000,
+        "annual_fee": 1000,
+        "annual_fee_waiver_spend": 100000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "5% cashback on top merchants, 1% others",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None (₹1000 voucher on ₹1L/qtr)"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 420000
+      }
+    },
+    {
+      "card_id": "cc_005_hdfc_bank_moneyback_credit_card",
+      "card_name": "MoneyBack+ Credit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 50000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10X CashPoints on Amazon/Flipkart/Swiggy",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_006_hdfc_bank_tata_neu_infinity",
+      "card_name": "Tata Neu Infinity",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Select",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 1499,
+        "annual_fee": 1499,
+        "annual_fee_waiver_spend": 300000,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "rewards": {
+        "summary": "5% NeuCoins on Tata Neu, 1.5% on UPI",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "8 Domestic, 4 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_007_hdfc_bank_tata_neu_plus",
+      "card_name": "Tata Neu Plus",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 499,
+        "annual_fee": 499,
+        "annual_fee_waiver_spend": 100000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "2% NeuCoins on Tata Neu, 1% on UPI",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_008_hdfc_bank_swiggy_hdfc_bank_credit_card",
+      "card_name": "Swiggy HDFC Bank Credit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 200000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10% cashback on Swiggy, 5% online",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_009_hdfc_bank_marriott_bonvoy_hdfc_credit_card",
+      "card_name": "Marriott Bonvoy HDFC Credit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "Diners Club",
+      "tier": "Privilege",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 3000,
+        "annual_fee": 3000,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "8 Marriott Bonvoy points per ₹150",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "12 Domestic, 12 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_010_hdfc_bank_indianoil_hdfc_bank_credit_card",
+      "card_name": "IndianOil HDFC Bank Credit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 50000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "5% fuel points at IndianOil outlets",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_011_hdfc_bank_freedom_credit_card",
+      "card_name": "Freedom Credit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Classic",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 50000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10X CashPoints on BigBasket/BookMyShow/Uber",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 180000
+      }
+    },
+    {
+      "card_id": "cc_012_hdfc_bank_pixel_play_credit_card",
+      "card_name": "Pixel Play Credit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 100000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "5% cashback on 2 chosen merchant packs",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_013_hdfc_bank_diners_club_privilege",
+      "card_name": "Diners Club Privilege",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "Diners Club",
+      "tier": "Privilege",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 1000,
+        "annual_fee": 1000,
+        "annual_fee_waiver_spend": 300000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "4 points per ₹150, 5X on Swiggy/Zomato",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/International per qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 420000
+      }
+    },
+    {
+      "card_id": "cc_014_hdfc_bank_shoppers_stop_hdfc_credit_card",
+      "card_name": "Shoppers Stop HDFC Credit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Classic",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 299,
+        "annual_fee": 299,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "3% reward points at Shoppers Stop",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_015_hdfc_bank_irctc_hdfc_bank_credit_card",
+      "card_name": "IRCTC HDFC Bank Credit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 150000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "5 reward points per ₹100 on IRCTC",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "8 Railway Lounge visits/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_016_sbi_card_sbi_card_aurum",
+      "card_name": "SBI Card AURUM",
+      "issuer": "SBI Card",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 9999,
+        "annual_fee": 9999,
+        "annual_fee_waiver_spend": 1200000,
+        "foreign_transaction_markup_percent": 1.99
+      },
+      "rewards": {
+        "summary": "40 reward points per ₹100 on select spends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited International, 4 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 3600000
+      }
+    },
+    {
+      "card_id": "cc_017_sbi_card_sbi_card_elite",
+      "card_name": "SBI Card ELITE",
+      "issuer": "SBI Card",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 4999,
+        "annual_fee": 4999,
+        "annual_fee_waiver_spend": 1000000,
+        "foreign_transaction_markup_percent": 1.99
+      },
+      "rewards": {
+        "summary": "5X points on dining, movies & groceries",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr, 6 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1500000
+      }
+    },
+    {
+      "card_id": "cc_018_sbi_card_sbi_card_prime",
+      "card_name": "SBI Card PRIME",
+      "issuer": "SBI Card",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 2999,
+        "annual_fee": 2999,
+        "annual_fee_waiver_spend": 300000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10 points per ₹100 on dining, groceries, movies",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "8 Domestic, 4 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 600000
+      }
+    },
+    {
+      "card_id": "cc_019_sbi_card_cashback_sbi_card",
+      "card_name": "Cashback SBI Card",
+      "issuer": "SBI Card",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 999,
+        "annual_fee": 999,
+        "annual_fee_waiver_spend": 200000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "5% cashback online, 1% offline",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 360000
+      }
+    },
+    {
+      "card_id": "cc_020_sbi_card_simplyclick_sbi_card",
+      "card_name": "SimplyCLICK SBI Card",
+      "issuer": "SBI Card",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 499,
+        "annual_fee": 499,
+        "annual_fee_waiver_spend": 100000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10X points on Amazon, BookMyShow, Cleartrip",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_021_sbi_card_simplysave_sbi_card",
+      "card_name": "SimplySAVE SBI Card",
+      "issuer": "SBI Card",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 499,
+        "annual_fee": 499,
+        "annual_fee_waiver_spend": 100000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10X points on dining, movies, groceries",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_022_sbi_card_bpcl_sbi_card_octane",
+      "card_name": "BPCL SBI Card OCTANE",
+      "issuer": "SBI Card",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Select",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 1499,
+        "annual_fee": 1499,
+        "annual_fee_waiver_spend": 200000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "25X points (7.25% value) on BPCL fuel",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 480000
+      }
+    },
+    {
+      "card_id": "cc_023_sbi_card_bpcl_sbi_card",
+      "card_name": "BPCL SBI Card",
+      "issuer": "SBI Card",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 499,
+        "annual_fee": 499,
+        "annual_fee_waiver_spend": 50000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "13X points (4.25% value) on BPCL fuel",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_024_sbi_card_irctc_sbi_platinum_card",
+      "card_name": "IRCTC SBI Platinum Card",
+      "issuer": "SBI Card",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 300,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "Up to 10% value back on AC1/AC2/AC3 bookings",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "4 Railway Lounge visits/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_025_sbi_card_irctc_sbi_premier_card",
+      "card_name": "IRCTC SBI Premier Card",
+      "issuer": "SBI Card",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Select",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 1499,
+        "annual_fee": 1499,
+        "annual_fee_waiver_spend": 200000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10% value back on IRCTC rail tickets",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "8 Railway Lounge visits/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 480000
+      }
+    },
+    {
+      "card_id": "cc_026_sbi_card_air_india_sbi_signature_card",
+      "card_name": "Air India SBI Signature Card",
+      "issuer": "SBI Card",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 4999,
+        "annual_fee": 4999,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "Up to 30 reward points per ₹100 on Air India",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "8 Domestic, Priority Pass"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_027_sbi_card_yatra_sbi_card",
+      "card_name": "Yatra SBI Card",
+      "issuer": "SBI Card",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 499,
+        "annual_fee": 499,
+        "annual_fee_waiver_spend": 100000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "6X points on departmental stores & dining",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_028_sbi_card_reliance_sbi_card_prime",
+      "card_name": "Reliance SBI Card PRIME",
+      "issuer": "SBI Card",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Select",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 2999,
+        "annual_fee": 2999,
+        "annual_fee_waiver_spend": 300000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10 points per ₹100 at Reliance Retail stores",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "8 Domestic, 4 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 600000
+      }
+    },
+    {
+      "card_id": "cc_029_icici_bank_emeralde_private_metal_credit_card",
+      "card_name": "Emeralde Private Metal Credit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World Elite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 12499,
+        "annual_fee": 12499,
+        "annual_fee_waiver_spend": 1000000,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "rewards": {
+        "summary": "6 points per ₹200, 12X on travel",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Domestic & International"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 3600000
+      }
+    },
+    {
+      "card_id": "cc_030_icici_bank_sapphiro_credit_card",
+      "card_name": "Sapphiro Credit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 6500,
+        "annual_fee": 3500,
+        "annual_fee_waiver_spend": 600000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "2 points per ₹100 domestic, 4 international",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/qtr, 2 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1500000
+      }
+    },
+    {
+      "card_id": "cc_031_icici_bank_rubyx_credit_card",
+      "card_name": "Rubyx Credit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 3000,
+        "annual_fee": 2000,
+        "annual_fee_waiver_spend": 300000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "2 points per ₹100 domestic, 4 international",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 800000
+      }
+    },
+    {
+      "card_id": "cc_032_icici_bank_coral_credit_card",
+      "card_name": "Coral Credit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Select",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 150000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "2 points per ₹100 retail, 1 point utilities",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 360000
+      }
+    },
+    {
+      "card_id": "cc_033_icici_bank_amazon_pay_icici_bank_credit_card",
+      "card_name": "Amazon Pay ICICI Bank Credit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "5% Amazon Prime, 3% non-Prime, 1% others",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_034_icici_bank_platinum_chip_credit_card",
+      "card_name": "Platinum Chip Credit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "2 points per ₹100 retail spends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_035_icici_bank_makemytrip_icici_signature_card",
+      "card_name": "MakeMyTrip ICICI Signature Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 2500,
+        "annual_fee": 2500,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "Up to ₹4 MyCash per ₹200 on MMT flights/hotels",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr, 1 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 600000
+      }
+    },
+    {
+      "card_id": "cc_036_icici_bank_hpcl_super_saver_credit_card",
+      "card_name": "HPCL Super Saver Credit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 150000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "4% cashback at HPCL fuel pumps",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_037_icici_bank_manchester_united_signature_card",
+      "card_name": "Manchester United Signature Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 2499,
+        "annual_fee": 2499,
+        "annual_fee_waiver_spend": 250000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "Up to 5 points per ₹100 on hotel/dining",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 600000
+      }
+    },
+    {
+      "card_id": "cc_038_icici_bank_times_black_icici_credit_card",
+      "card_name": "Times Black ICICI Credit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 20000,
+        "annual_fee": 20000,
+        "annual_fee_waiver_spend": 2500000,
+        "foreign_transaction_markup_percent": 1.49
+      },
+      "rewards": {
+        "summary": "2% domestic, 2.5% international spends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Domestic & International"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 4000000
+      }
+    },
+    {
+      "card_id": "cc_039_icici_bank_adani_one_signature_credit_card",
+      "card_name": "Adani One Signature Credit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 5000,
+        "annual_fee": 5000,
+        "annual_fee_waiver_spend": 600000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "7% Adani Reward Points on Adani ecosystem",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/qtr, 2 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_040_icici_bank_adani_one_platinum_credit_card",
+      "card_name": "Adani One Platinum Credit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 750,
+        "annual_fee": 750,
+        "annual_fee_waiver_spend": 300000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "3% Adani Reward Points on Adani ecosystem",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 480000
+      }
+    },
+    {
+      "card_id": "cc_041_axis_bank_axis_bank_reserve_credit_card",
+      "card_name": "Axis Bank Reserve Credit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 50000,
+        "annual_fee": 50000,
+        "annual_fee_waiver_spend": 3500000,
+        "foreign_transaction_markup_percent": 1.5
+      },
+      "rewards": {
+        "summary": "15 EDGE points per ₹200, 30X international",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Domestic & International"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 6000000
+      }
+    },
+    {
+      "card_id": "cc_042_axis_bank_axis_bank_magnus_credit_card",
+      "card_name": "Axis Bank Magnus Credit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 12500,
+        "annual_fee": 12500,
+        "annual_fee_waiver_spend": 2500000,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "rewards": {
+        "summary": "12 EDGE points per ₹200 up to ₹1.5L/mo",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Domestic, 4 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 2400000
+      }
+    },
+    {
+      "card_id": "cc_043_axis_bank_axis_bank_atlas_credit_card",
+      "card_name": "Axis Bank Atlas Credit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 5000,
+        "annual_fee": 5000,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "5 EDGE Miles per ₹100 travel, 2 elsewhere",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "8-18 Domestic, 4-12 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_044_axis_bank_axis_bank_select_credit_card",
+      "card_name": "Axis Bank SELECT Credit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 3000,
+        "annual_fee": 3000,
+        "annual_fee_waiver_spend": 800000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10 EDGE points per ₹200, 2X retail",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr, 12 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 900000
+      }
+    },
+    {
+      "card_id": "cc_045_axis_bank_axis_bank_privilege_credit_card",
+      "card_name": "Axis Bank Privilege Credit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 1500,
+        "annual_fee": 1500,
+        "annual_fee_waiver_spend": 250000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10 EDGE points per ₹200",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 600000
+      }
+    },
+    {
+      "card_id": "cc_046_axis_bank_flipkart_axis_bank_credit_card",
+      "card_name": "Flipkart Axis Bank Credit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 350000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "5% cashback on Flipkart & Cleartrip, 4% preferred",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_047_axis_bank_axis_bank_ace_credit_card",
+      "card_name": "Axis Bank ACE Credit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 499,
+        "annual_fee": 499,
+        "annual_fee_waiver_spend": 200000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "5% cashback on Google Pay bills, 4% Swiggy/Zomato",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_048_axis_bank_airtel_axis_bank_credit_card",
+      "card_name": "Airtel Axis Bank Credit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 200000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "25% Airtel bills, 10% utilities, 10% Swiggy/Zomato",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_049_axis_bank_indianoil_axis_bank_credit_card",
+      "card_name": "IndianOil Axis Bank Credit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 350000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "4% value back on IndianOil fuel transactions",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_050_axis_bank_axis_bank_neo_credit_card",
+      "card_name": "Axis Bank NEO Credit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "40% off Zomato, 5% utility bill discount",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 180000
+      }
+    },
+    {
+      "card_id": "cc_051_axis_bank_axis_bank_my_zone_credit_card",
+      "card_name": "Axis Bank My Zone Credit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "Buy 1 Get 1 on District movies, ₹120 off Swiggy",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_052_axis_bank_samsung_axis_bank_infinite",
+      "card_name": "Samsung Axis Bank Infinite",
+      "issuer": "Axis Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 5000,
+        "annual_fee": 5000,
+        "annual_fee_waiver_spend": 700000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10% cashback on Samsung products",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "8 Domestic, 6 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_053_axis_bank_lic_axis_bank_signature_credit_card",
+      "card_name": "LIC Axis Bank Signature Credit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "2 reward points per ₹100 on LIC premiums",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 500000
+      }
+    },
+    {
+      "card_id": "cc_054_kotak_mahindra_bank_kotak_white_reserve_credit_card",
+      "card_name": "Kotak White Reserve Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 12500,
+        "annual_fee": 12500,
+        "annual_fee_waiver_spend": 1500000,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "rewards": {
+        "summary": "Up to ₹30,000 White Pass vouchers annually",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Domestic & International"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 3000000
+      }
+    },
+    {
+      "card_id": "cc_055_kotak_mahindra_bank_kotak_white_credit_card",
+      "card_name": "Kotak White Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 3000,
+        "annual_fee": 3000,
+        "annual_fee_waiver_spend": 500000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "White Pass value back on milestone spends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "8 Domestic, 4 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_056_kotak_mahindra_bank_kotak_mojo_platinum_credit_card",
+      "card_name": "Kotak Mojo Platinum Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 1000,
+        "annual_fee": 1000,
+        "annual_fee_waiver_spend": 100000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "2.5 Mojo points per ₹100 online spends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 400000
+      }
+    },
+    {
+      "card_id": "cc_057_kotak_mahindra_bank_kotak_league_platinum_credit_card",
+      "card_name": "Kotak League Platinum Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 499,
+        "annual_fee": 499,
+        "annual_fee_waiver_spend": 50000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "8 points per ₹150 on airlines, agencies, electronics",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_058_kotak_mahindra_bank_kotak_zen_signature_credit_card",
+      "card_name": "Kotak Zen Signature Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 1500,
+        "annual_fee": 1500,
+        "annual_fee_waiver_spend": 150000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10 Zen points per ₹150 on shopping & apparel",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr, 3 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 600000
+      }
+    },
+    {
+      "card_id": "cc_059_kotak_mahindra_bank_kotak_811_dreamdifferent",
+      "card_name": "Kotak 811 #DreamDifferent",
+      "issuer": "Kotak Mahindra Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Classic",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "2 points per ₹100 online, 1 point offline (FD-backed)",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 0
+      }
+    },
+    {
+      "card_id": "cc_060_kotak_mahindra_bank_myntra_kotak_credit_card",
+      "card_name": "Myntra Kotak Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 200000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "7.5% instant discount on Myntra, 5% Swiggy/PVR",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_061_kotak_mahindra_bank_indianoil_kotak_credit_card",
+      "card_name": "IndianOil Kotak Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 449,
+        "annual_fee": 449,
+        "annual_fee_waiver_spend": 50000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "4% back as reward points on IndianOil fuel",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_062_idfc_first_bank_first_private_credit_card",
+      "card_name": "FIRST Private Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 50000,
+        "annual_fee": 50000,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 0.0
+      },
+      "rewards": {
+        "summary": "10X never-expiring points on incremental spends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Domestic & International"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 5000000
+      }
+    },
+    {
+      "card_id": "cc_063_idfc_first_bank_first_wealth_credit_card",
+      "card_name": "FIRST Wealth Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 1.5
+      },
+      "rewards": {
+        "summary": "10X points above ₹20,000 monthly spend",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic & International/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 3600000
+      }
+    },
+    {
+      "card_id": "cc_064_idfc_first_bank_first_select_credit_card",
+      "card_name": "FIRST Select Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 1.99
+      },
+      "rewards": {
+        "summary": "10X points above ₹20,000 monthly spend",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_065_idfc_first_bank_first_millennia_credit_card",
+      "card_name": "FIRST Millennia Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10X points on birthday & incremental spends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_066_idfc_first_bank_first_classic_credit_card",
+      "card_name": "FIRST Classic Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "6X points online, 3X offline",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_067_idfc_first_bank_first_wow_credit_card",
+      "card_name": "FIRST WOW! Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 0.0
+      },
+      "rewards": {
+        "summary": "4X points on all spends (FD-backed, zero forex)",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 0
+      }
+    },
+    {
+      "card_id": "cc_068_idfc_first_bank_club_vistara_idfc_first_card",
+      "card_name": "Club Vistara IDFC FIRST Card",
+      "issuer": "IDFC FIRST Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 4999,
+        "annual_fee": 4999,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 2.99
+      },
+      "rewards": {
+        "summary": "6 CV points per ₹200 up to ₹1L/mo",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr, 1 International/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_069_idfc_first_bank_first_power_hpcl_credit_card",
+      "card_name": "FIRST Power+ HPCL Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Select",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 499,
+        "annual_fee": 499,
+        "annual_fee_waiver_spend": 150000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "5% savings on HPCL fuel, 5% groceries/utilities",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_070_indusind_bank_indusind_celesta_credit_card",
+      "card_name": "IndusInd Celesta Credit Card",
+      "issuer": "IndusInd Bank",
+      "card_type": "Credit",
+      "network": "American Express",
+      "tier": "Centurion",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 25000,
+        "annual_fee": 5000,
+        "annual_fee_waiver_spend": 1000000,
+        "foreign_transaction_markup_percent": 1.85
+      },
+      "rewards": {
+        "summary": "3 points per ₹100 international, 1 domestic",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited International, 2 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 2400000
+      }
+    },
+    {
+      "card_id": "cc_071_indusind_bank_indusind_pinnacle_world_card",
+      "card_name": "IndusInd Pinnacle World Card",
+      "issuer": "IndusInd Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 12999,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 2.5
+      },
+      "rewards": {
+        "summary": "2.5 points per ₹100 e-commerce",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr, Priority Pass"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1800000
+      }
+    },
+    {
+      "card_id": "cc_072_indusind_bank_indusind_legend_credit_card",
+      "card_name": "IndusInd Legend Credit Card",
+      "issuer": "IndusInd Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 1.8
+      },
+      "rewards": {
+        "summary": "2 points per ₹100 on weekends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_073_indusind_bank_eazydiner_indusind_signature",
+      "card_name": "EazyDiner IndusInd Signature",
+      "issuer": "IndusInd Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 1999,
+        "annual_fee": 1999,
+        "annual_fee_waiver_spend": 300000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10 points per ₹100 on dining/shopping/entertainment",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 600000
+      }
+    },
+    {
+      "card_id": "cc_074_indusind_bank_indusind_platinum_aura_edge",
+      "card_name": "IndusInd Platinum Aura Edge",
+      "issuer": "IndusInd Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "Up to 4X points on departmental & grocery spends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_075_indusind_bank_indusind_tiger_credit_card",
+      "card_name": "IndusInd Tiger Credit Card",
+      "issuer": "IndusInd Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 1.5
+      },
+      "rewards": {
+        "summary": "Up to 6 points per ₹100 on milestone spends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr, 2 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 600000
+      }
+    },
+    {
+      "card_id": "cc_076_indusind_bank_indusind_platinum_rupay_card",
+      "card_name": "IndusInd Platinum RuPay Card",
+      "issuer": "IndusInd Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "2 points per ₹100 on UPI merchant spends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_077_rbl_bank_rbl_bank_world_safari_card",
+      "card_name": "RBL Bank World Safari Card",
+      "issuer": "RBL Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 3000,
+        "annual_fee": 3000,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 0.0
+      },
+      "rewards": {
+        "summary": "5 travel points per ₹100 on travel, 0% forex markup",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr, 2 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 600000
+      }
+    },
+    {
+      "card_id": "cc_078_rbl_bank_rbl_bank_shoprite_credit_card",
+      "card_name": "RBL Bank ShopRite Credit Card",
+      "issuer": "RBL Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 100000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "20 points per ₹100 on grocery spends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_079_rbl_bank_rbl_bank_play_credit_card",
+      "card_name": "RBL Bank Play Credit Card",
+      "issuer": "RBL Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 500,
+        "annual_fee": 500,
+        "annual_fee_waiver_spend": 150000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "2 free BookMyShow tickets every month on ₹5k spend",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_080_rbl_bank_indianoil_rbl_bank_xtra_card",
+      "card_name": "IndianOil RBL Bank XTRA Card",
+      "issuer": "RBL Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Select",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 1500,
+        "annual_fee": 1500,
+        "annual_fee_waiver_spend": 275000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "15 fuel points per ₹100 (8.5% value) at IOCL",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 480000
+      }
+    },
+    {
+      "card_id": "cc_081_rbl_bank_rbl_bank_platinum_maxima_plus",
+      "card_name": "RBL Bank Platinum Maxima Plus",
+      "issuer": "RBL Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 2000,
+        "annual_fee": 2000,
+        "annual_fee_waiver_spend": 350000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10 points per ₹100 on dining, entertainment, utilities",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 480000
+      }
+    },
+    {
+      "card_id": "cc_082_rbl_bank_rbl_bank_icon_credit_card",
+      "card_name": "RBL Bank Icon Credit Card",
+      "issuer": "RBL Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 5000,
+        "annual_fee": 5000,
+        "annual_fee_waiver_spend": 800000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "20 points per ₹100 on weekend dining & international",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr, Priority Pass"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_083_yes_bank_yes_bank_marquee_credit_card",
+      "card_name": "YES Bank MARQUEE Credit Card",
+      "issuer": "YES Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World Elite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 9999,
+        "annual_fee": 4999,
+        "annual_fee_waiver_spend": 1000000,
+        "foreign_transaction_markup_percent": 1.0
+      },
+      "rewards": {
+        "summary": "36 points per ₹200 online, 18 offline",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited International, 6 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 3600000
+      }
+    },
+    {
+      "card_id": "cc_084_yes_bank_yes_first_preferred_card",
+      "card_name": "YES FIRST Preferred Card",
+      "issuer": "YES Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 999,
+        "annual_fee": 999,
+        "annual_fee_waiver_spend": 250000,
+        "foreign_transaction_markup_percent": 1.75
+      },
+      "rewards": {
+        "summary": "8 points per ₹200 on travel & dining",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 900000
+      }
+    },
+    {
+      "card_id": "cc_085_yes_bank_yes_prosperity_rewards_plus",
+      "card_name": "YES Prosperity Rewards Plus",
+      "issuer": "YES Bank",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 399,
+        "annual_fee": 399,
+        "annual_fee_waiver_spend": 50000,
+        "foreign_transaction_markup_percent": 3.4
+      },
+      "rewards": {
+        "summary": "4 points per ₹200 retail, 2X online",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_086_yes_bank_yes_bank_paisasave_card",
+      "card_name": "YES Bank PaisaSave Card",
+      "issuer": "YES Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Select",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 499,
+        "annual_fee_waiver_spend": 120000,
+        "foreign_transaction_markup_percent": 3.4
+      },
+      "rewards": {
+        "summary": "6% cashback on travel & dining, 1% on UPI",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_087_yes_bank_yes_bank_ace_credit_card",
+      "card_name": "YES Bank ACE Credit Card",
+      "issuer": "YES Bank",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 399,
+        "annual_fee": 399,
+        "annual_fee_waiver_spend": 50000,
+        "foreign_transaction_markup_percent": 3.4
+      },
+      "rewards": {
+        "summary": "4 points per ₹200 on dining & groceries",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 240000
+      }
+    },
+    {
+      "card_id": "cc_088_american_express_american_express_platinum_card",
+      "card_name": "American Express Platinum Card",
+      "issuer": "American Express",
+      "card_type": "Credit",
+      "network": "American Express",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 66000,
+        "annual_fee": 66000,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "5X Membership Rewards on Reward Multiplier",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Global Lounge Collection"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 2500000
+      }
+    },
+    {
+      "card_id": "cc_089_american_express_american_express_platinum_travel",
+      "card_name": "American Express Platinum Travel",
+      "issuer": "American Express",
+      "card_type": "Credit",
+      "network": "American Express",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 5000,
+        "annual_fee": 5000,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "Milestone vouchers worth ₹10,000+ & Taj stay on ₹4L",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "8 Domestic/yr, Priority Pass"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 600000
+      }
+    },
+    {
+      "card_id": "cc_090_american_express_american_express_membership_rewards",
+      "card_name": "American Express Membership Rewards",
+      "issuer": "American Express",
+      "card_type": "Credit",
+      "network": "American Express",
+      "tier": "Classic",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 1000,
+        "annual_fee": 4500,
+        "annual_fee_waiver_spend": 150000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "1,000 bonus points for 4x ₹1,500 transactions/mo",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 600000
+      }
+    },
+    {
+      "card_id": "cc_091_american_express_american_express_smartearn",
+      "card_name": "American Express SmartEarn",
+      "issuer": "American Express",
+      "card_type": "Credit",
+      "network": "American Express",
+      "tier": "Classic",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 495,
+        "annual_fee": 495,
+        "annual_fee_waiver_spend": 40000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10X points on Flipkart, Amazon, Uber, Zomato",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 450000
+      }
+    },
+    {
+      "card_id": "cc_092_standard_chartered_standard_chartered_ultimate",
+      "card_name": "Standard Chartered Ultimate",
+      "issuer": "Standard Chartered",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 5000,
+        "annual_fee": 5000,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "rewards": {
+        "summary": "5 points per ₹150 (3.3% value back)",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/mo, Priority Pass"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 2400000
+      }
+    },
+    {
+      "card_id": "cc_093_standard_chartered_standard_chartered_smart_card",
+      "card_name": "Standard Chartered Smart Card",
+      "issuer": "Standard Chartered",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 499,
+        "annual_fee": 499,
+        "annual_fee_waiver_spend": 120000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "2% cashback on online spends, 1% others",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 400000
+      }
+    },
+    {
+      "card_id": "cc_094_standard_chartered_standard_chartered_easemytrip",
+      "card_name": "Standard Chartered EaseMyTrip",
+      "issuer": "Standard Chartered",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 350,
+        "annual_fee": 350,
+        "annual_fee_waiver_spend": 50000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "20% off hotels, 10% off flights on EaseMyTrip",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 400000
+      }
+    },
+    {
+      "card_id": "cc_095_hsbc_india_hsbc_premier_credit_card",
+      "card_name": "HSBC Premier Credit Card",
+      "issuer": "HSBC India",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World Elite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 12000,
+        "annual_fee": 20000,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 0.99
+      },
+      "rewards": {
+        "summary": "3 points per ₹100 on all spends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Domestic & International"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 4000000
+      }
+    },
+    {
+      "card_id": "cc_096_hsbc_india_hsbc_travelone_credit_card",
+      "card_name": "HSBC TravelOne Credit Card",
+      "issuer": "HSBC India",
+      "card_type": "Credit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 4999,
+        "annual_fee": 4999,
+        "annual_fee_waiver_spend": 800000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "4 points per ₹100 on flights & travel",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "6 Domestic, 4 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_097_hsbc_india_hsbc_live_credit_card",
+      "card_name": "HSBC Live+ Credit Card",
+      "issuer": "HSBC India",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 999,
+        "annual_fee": 999,
+        "annual_fee_waiver_spend": 200000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10% cashback on dining, food delivery & groceries",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 400000
+      }
+    },
+    {
+      "card_id": "cc_098_bobcard_bobcard_eterna",
+      "card_name": "BOBCARD Eterna",
+      "issuer": "BOBCARD",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 2499,
+        "annual_fee": 2499,
+        "annual_fee_waiver_spend": 250000,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "rewards": {
+        "summary": "15 points per ₹100 on online, dining & travel",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Domestic"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_099_bobcard_bobcard_premier",
+      "card_name": "BOBCARD Premier",
+      "issuer": "BOBCARD",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 1000,
+        "annual_fee": 1000,
+        "annual_fee_waiver_spend": 120000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "10 points per ₹100 on travel, dining & international",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/qtr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 720000
+      }
+    },
+    {
+      "card_id": "cc_100_bobcard_hpcl_bobcard_energie",
+      "card_name": "HPCL BOBCARD ENERGIE",
+      "issuer": "BOBCARD",
+      "card_type": "Credit",
+      "network": "RuPay",
+      "tier": "Select",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 499,
+        "annual_fee": 499,
+        "annual_fee_waiver_spend": 50000,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "24 points per ₹150 on HPCL fuel & LPG",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 360000
+      }
+    },
+    {
+      "card_id": "cc_101_federal_bank_federal_bank_scapia_credit_card",
+      "card_name": "Federal Bank Scapia Credit Card",
+      "issuer": "Federal Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 0.0
+      },
+      "rewards": {
+        "summary": "10% Scapia coins on eligible spends, 0% forex",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Domestic (spend-based)"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    },
+    {
+      "card_id": "cc_102_federal_bank_federal_bank_celesta_credit_card",
+      "card_name": "Federal Bank Celesta Credit Card",
+      "issuer": "Federal Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 3000,
+        "annual_fee": 3000,
+        "annual_fee_waiver_spend": 300000,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "rewards": {
+        "summary": "3X points on dining & international spends",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/qtr, 2 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 1200000
+      }
+    },
+    {
+      "card_id": "cc_103_au_small_finance_bank_au_zenith_credit_card",
+      "card_name": "AU Zenith+ Credit Card",
+      "issuer": "AU Small Finance Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 4999,
+        "annual_fee": 4999,
+        "annual_fee_waiver_spend": 800000,
+        "foreign_transaction_markup_percent": 0.99
+      },
+      "rewards": {
+        "summary": "2 points per ₹100 dining/travel/international",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "16 Domestic & 16 International/yr"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 2400000
+      }
+    },
+    {
+      "card_id": "cc_104_au_small_finance_bank_au_lit_credit_card",
+      "card_name": "AU LIT Credit Card",
+      "issuer": "AU Small Finance Bank",
+      "card_type": "Credit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "joining_fee": 0,
+        "annual_fee": 0,
+        "annual_fee_waiver_spend": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "rewards": {
+        "summary": "Customizable cashback & multiplier features",
+        "fuel_surcharge_waiver_percent": 1.0
+      },
+      "perks": {
+        "airport_lounge_access": "Customizable"
+      },
+      "eligibility": {
+        "min_age": 21,
+        "max_age": 65,
+        "min_annual_income_inr": 300000
+      }
+    }
+  ],
+  "debit_cards": [
+    {
+      "card_id": "dc_001_hdfc_bank_infiniti_debit_card",
+      "card_name": "Infiniti Debit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 200000,
+        "daily_pos_online_limit_inr": 1000000
+      },
+      "rewards": {
+        "summary": "Up to 5% cashback, unlimited domestic lounge"
+      },
+      "perks": {
+        "airport_lounge_access": "16 Domestic/yr"
+      }
+    },
+    {
+      "card_id": "dc_002_hdfc_bank_easyshop_imperia_platinum_chip",
+      "card_name": "EasyShop Imperia Platinum Chip",
+      "issuer": "HDFC Bank",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 500000
+      },
+      "rewards": {
+        "summary": "1 CashBack point per ₹200 spent"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_003_hdfc_bank_easyshop_preferred_platinum",
+      "card_name": "EasyShop Preferred Platinum",
+      "issuer": "HDFC Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 500000
+      },
+      "rewards": {
+        "summary": "1 CashBack point per ₹200 spent"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_004_hdfc_bank_millennia_debit_card",
+      "card_name": "Millennia Debit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 500,
+        "annual_fee": 500,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 50000,
+        "daily_pos_online_limit_inr": 350000
+      },
+      "rewards": {
+        "summary": "5% PayZapp/SmartBuy, 2.5% online, 1% offline"
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/yr"
+      }
+    },
+    {
+      "card_id": "dc_005_hdfc_bank_easyshop_platinum_debit_card",
+      "card_name": "EasyShop Platinum Debit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 850,
+        "annual_fee": 850,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 500000
+      },
+      "rewards": {
+        "summary": "1 CashBack point per ₹200 on telecom/utilities"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_006_hdfc_bank_moneyback_debit_card",
+      "card_name": "MoneyBack Debit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 500,
+        "annual_fee": 500,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 25000,
+        "daily_pos_online_limit_inr": 275000
+      },
+      "rewards": {
+        "summary": "2% cashback on everyday spends"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_007_hdfc_bank_times_points_debit_card",
+      "card_name": "Times Points Debit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 500,
+        "annual_fee": 500,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 50000,
+        "daily_pos_online_limit_inr": 350000
+      },
+      "rewards": {
+        "summary": "2 Times Points per ₹150 spent"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_008_hdfc_bank_rupay_premium_debit_card",
+      "card_name": "RuPay Premium Debit Card",
+      "issuer": "HDFC Bank",
+      "card_type": "Debit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 200,
+        "annual_fee": 200,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 25000,
+        "daily_pos_online_limit_inr": 275000
+      },
+      "rewards": {
+        "summary": "5% cashback on utility bills"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/yr"
+      }
+    },
+    {
+      "card_id": "dc_009_sbi_sbi_platinum_international_debit_card",
+      "card_name": "SBI Platinum International Debit Card",
+      "issuer": "SBI",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 300,
+        "annual_fee": 250,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 200000
+      },
+      "rewards": {
+        "summary": "2 SBI Rewardz points per ₹200 spent"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_010_sbi_sbi_pride_business_debit_card",
+      "card_name": "SBI Pride Business Debit Card",
+      "issuer": "SBI",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Business",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 300,
+        "annual_fee": 350,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 200000
+      },
+      "rewards": {
+        "summary": "2 SBI Rewardz points per ₹200 business spend"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_011_sbi_sbi_global_international_debit_card",
+      "card_name": "SBI Global International Debit Card",
+      "issuer": "SBI",
+      "card_type": "Debit",
+      "network": "RuPay",
+      "tier": "Select",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 125,
+        "foreign_transaction_markup_percent": 3.0
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 40000,
+        "daily_pos_online_limit_inr": 75000
+      },
+      "rewards": {
+        "summary": "1 SBI Rewardz point per ₹200 spent"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr, 2 International/yr"
+      }
+    },
+    {
+      "card_id": "dc_012_sbi_sbi_gold_international_debit_card",
+      "card_name": "SBI Gold International Debit Card",
+      "issuer": "SBI",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Gold",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 100,
+        "annual_fee": 175,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 50000,
+        "daily_pos_online_limit_inr": 200000
+      },
+      "rewards": {
+        "summary": "1 SBI Rewardz point per ₹200 spent"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_013_sbi_sbi_classic_debit_card",
+      "card_name": "SBI Classic Debit Card",
+      "issuer": "SBI",
+      "card_type": "Debit",
+      "network": "RuPay",
+      "tier": "Classic",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 125,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 20000,
+        "daily_pos_online_limit_inr": 50000
+      },
+      "rewards": {
+        "summary": "1 SBI Rewardz point per ₹200 spent"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_014_sbi_sbi_iocl_co_branded_rupay_card",
+      "card_name": "SBI IOCL Co-Branded RuPay Card",
+      "issuer": "SBI",
+      "card_type": "Debit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 200,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 40000,
+        "daily_pos_online_limit_inr": 200000
+      },
+      "rewards": {
+        "summary": "6 reward points per ₹200 at IndianOil pumps"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_015_sbi_sbiintouch_tap__go_debit_card",
+      "card_name": "sbiINTOUCH Tap & Go Debit Card",
+      "issuer": "SBI",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 175,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 40000,
+        "daily_pos_online_limit_inr": 75000
+      },
+      "rewards": {
+        "summary": "Contactless tap-and-go rewards"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_016_icici_bank_sapphiro_debit_card",
+      "card_name": "Sapphiro Debit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 1999,
+        "annual_fee": 1499,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 150000,
+        "daily_pos_online_limit_inr": 500000
+      },
+      "rewards": {
+        "summary": "4 points per ₹200 domestic, 8 international"
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_017_icici_bank_rubyx_debit_card",
+      "card_name": "Rubyx Debit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 1499,
+        "annual_fee": 999,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 125000,
+        "daily_pos_online_limit_inr": 350000
+      },
+      "rewards": {
+        "summary": "3 points per ₹200 domestic, 6 international"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_018_icici_bank_coral_paywave_debit_card",
+      "card_name": "Coral Paywave Debit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 599,
+        "annual_fee": 599,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 300000
+      },
+      "rewards": {
+        "summary": "2 points per ₹200 domestic, 4 international"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_019_icici_bank_titanium_privileges_debit_card",
+      "card_name": "Titanium Privileges Debit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "Titanium",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 250,
+        "annual_fee": 250,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 50000,
+        "daily_pos_online_limit_inr": 150000
+      },
+      "rewards": {
+        "summary": "1 point per ₹200 domestic"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_020_icici_bank_smart_shopper_silver_debit_card",
+      "card_name": "Smart Shopper Silver Debit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Classic",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 150,
+        "annual_fee": 150,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 50000,
+        "daily_pos_online_limit_inr": 125000
+      },
+      "rewards": {
+        "summary": "1 point per ₹200 spent"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_021_icici_bank_expressions_debit_card",
+      "card_name": "Expressions Debit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 599,
+        "annual_fee": 599,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 300000
+      },
+      "rewards": {
+        "summary": "Custom card face + 2 points per ₹200"
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_022_icici_bank_gemstone_debit_card",
+      "card_name": "Gemstone Debit Card",
+      "issuer": "ICICI Bank",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 250000,
+        "daily_pos_online_limit_inr": 750000
+      },
+      "rewards": {
+        "summary": "6 points per ₹200, BOGO BookMyShow"
+      },
+      "perks": {
+        "airport_lounge_access": "4 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_023_axis_bank_burgundy_world_debit_card",
+      "card_name": "Burgundy World Debit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 300000,
+        "daily_pos_online_limit_inr": 600000
+      },
+      "rewards": {
+        "summary": "Up to 6 EDGE points per ₹200"
+      },
+      "perks": {
+        "airport_lounge_access": "3 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_024_axis_bank_wealth_debit_card",
+      "card_name": "Wealth Debit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 2.0
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 200000,
+        "daily_pos_online_limit_inr": 500000
+      },
+      "rewards": {
+        "summary": "4 EDGE points per ₹200"
+      },
+      "perks": {
+        "airport_lounge_access": "3 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_025_axis_bank_priority_platinum_debit_card",
+      "card_name": "Priority Platinum Debit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 400000
+      },
+      "rewards": {
+        "summary": "2 EDGE points per ₹200, 25% movie cashback"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_026_axis_bank_prestige_debit_card",
+      "card_name": "Prestige Debit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 500,
+        "annual_fee": 500,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 300000
+      },
+      "rewards": {
+        "summary": "2 EDGE points per ₹200 on fuel/shopping"
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_027_axis_bank_liberty_debit_card",
+      "card_name": "Liberty Debit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 150,
+        "annual_fee": 150,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 50000,
+        "daily_pos_online_limit_inr": 300000
+      },
+      "rewards": {
+        "summary": "5% cashback on weekend food, entertainment & shopping"
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_028_axis_bank_rewards_debit_card",
+      "card_name": "Rewards+ Debit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 500,
+        "annual_fee": 500,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 50000,
+        "daily_pos_online_limit_inr": 400000
+      },
+      "rewards": {
+        "summary": "Accelerated EDGE rewards on apparel & travel"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_029_axis_bank_rupay_platinum_debit_card",
+      "card_name": "RuPay Platinum Debit Card",
+      "issuer": "Axis Bank",
+      "card_type": "Debit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 200,
+        "annual_fee": 200,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 40000,
+        "daily_pos_online_limit_inr": 200000
+      },
+      "rewards": {
+        "summary": "20% off dining via Dining Delights"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/yr"
+      }
+    },
+    {
+      "card_id": "dc_030_kotak_mahindra_bank_privy_league_black_metal_card",
+      "card_name": "Privy League Black Metal Card",
+      "issuer": "Kotak Mahindra Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 0.0
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 250000,
+        "daily_pos_online_limit_inr": 750000
+      },
+      "rewards": {
+        "summary": "Zero forex markup + BOGO BookMyShow"
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Domestic"
+      }
+    },
+    {
+      "card_id": "dc_031_kotak_mahindra_bank_privy_league_platinum_card",
+      "card_name": "Privy League Platinum Card",
+      "issuer": "Kotak Mahindra Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 150000,
+        "daily_pos_online_limit_inr": 400000
+      },
+      "rewards": {
+        "summary": "Dining & lifestyle privileges"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_032_kotak_mahindra_bank_silk_platinum_debit_card",
+      "card_name": "Silk Platinum Debit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 299,
+        "annual_fee": 299,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 50000,
+        "daily_pos_online_limit_inr": 200000
+      },
+      "rewards": {
+        "summary": "Exclusive offers for women on shopping & wellness"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_033_kotak_mahindra_bank_811_dream_different_debit_card",
+      "card_name": "811 #Dream Different Debit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "card_type": "Debit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 299,
+        "annual_fee": 299,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 25000,
+        "daily_pos_online_limit_inr": 100000
+      },
+      "rewards": {
+        "summary": "Discounts on dining, travel & health brands"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_034_kotak_mahindra_bank_classic_debit_card",
+      "card_name": "Classic Debit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Classic",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 259,
+        "annual_fee": 259,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 25000,
+        "daily_pos_online_limit_inr": 100000
+      },
+      "rewards": {
+        "summary": "Standard domestic POS & ATM access"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_035_idfc_first_bank_first_wealth_debit_card",
+      "card_name": "FIRST Wealth Debit Card",
+      "issuer": "IDFC FIRST Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 0.0
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 200000,
+        "daily_pos_online_limit_inr": 600000
+      },
+      "rewards": {
+        "summary": "Zero forex markup + ₹1 Cr air accident cover"
+      },
+      "perks": {
+        "airport_lounge_access": "3 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_036_idfc_first_bank_visa_signature_debit_card",
+      "card_name": "Visa Signature Debit Card",
+      "issuer": "IDFC FIRST Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 150000,
+        "daily_pos_online_limit_inr": 400000
+      },
+      "rewards": {
+        "summary": "Complimentary lounge & movie offers"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_037_idfc_first_bank_visa_platinum_debit_card",
+      "card_name": "Visa Platinum Debit Card",
+      "issuer": "IDFC FIRST Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 300000
+      },
+      "rewards": {
+        "summary": "Zero ATM fee across all bank ATMs in India"
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_038_idfc_first_bank_rupay_platinum_debit_card",
+      "card_name": "RuPay Platinum Debit Card",
+      "issuer": "IDFC FIRST Bank",
+      "card_type": "Debit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 300000
+      },
+      "rewards": {
+        "summary": "Merchant offers on UPI & POS"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/yr"
+      }
+    },
+    {
+      "card_id": "dc_039_indusind_bank_pioneer_world_debit_card",
+      "card_name": "Pioneer World Debit Card",
+      "issuer": "IndusInd Bank",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 0.0
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 250000,
+        "daily_pos_online_limit_inr": 750000
+      },
+      "rewards": {
+        "summary": "Zero forex markup + complimentary golf & movies"
+      },
+      "perks": {
+        "airport_lounge_access": "Unlimited Domestic"
+      }
+    },
+    {
+      "card_id": "dc_040_indusind_bank_indusind_signature_debit_card",
+      "card_name": "IndusInd Signature Debit Card",
+      "issuer": "IndusInd Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Signature",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 150000,
+        "daily_pos_online_limit_inr": 400000
+      },
+      "rewards": {
+        "summary": "Buy 1 Get 1 BookMyShow + 2 points per ₹200"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_041_indusind_bank_indusind_platinum_plus_card",
+      "card_name": "IndusInd Platinum Plus Card",
+      "issuer": "IndusInd Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 499,
+        "annual_fee": 499,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 250000
+      },
+      "rewards": {
+        "summary": "1 reward point per ₹200 spent"
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_042_indusind_bank_indusind_titanium_debit_card",
+      "card_name": "IndusInd Titanium Debit Card",
+      "issuer": "IndusInd Bank",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "Titanium",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 249,
+        "annual_fee": 249,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 50000,
+        "daily_pos_online_limit_inr": 125000
+      },
+      "rewards": {
+        "summary": "Fuel surcharge waiver & dining offers"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_043_bank_of_baroda_bob_easemytrip_debit_card",
+      "card_name": "BOB EaseMyTrip Debit Card",
+      "issuer": "Bank of Baroda",
+      "card_type": "Debit",
+      "network": "RuPay",
+      "tier": "Select",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 599,
+        "annual_fee": 599,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 500000
+      },
+      "rewards": {
+        "summary": "Flat 10% off flights & 15% off hotels on EaseMyTrip"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr, 2 International/yr"
+      }
+    },
+    {
+      "card_id": "dc_044_bank_of_baroda_bob_mastercard_world_debit_card",
+      "card_name": "BOB Mastercard World Debit Card",
+      "issuer": "Bank of Baroda",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 500,
+        "annual_fee": 500,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 300000
+      },
+      "rewards": {
+        "summary": "2 Baroda Rewardz points per ₹100"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_045_bank_of_baroda_bob_rupay_platinum_di_card",
+      "card_name": "BOB RuPay Platinum DI Card",
+      "issuer": "Bank of Baroda",
+      "card_type": "Debit",
+      "network": "RuPay",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 200,
+        "annual_fee": 200,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 50000,
+        "daily_pos_online_limit_inr": 100000
+      },
+      "rewards": {
+        "summary": "5% cashback on utility bills"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/yr"
+      }
+    },
+    {
+      "card_id": "dc_046_punjab_national_bank_pnb_rupay_select_debit_card",
+      "card_name": "PNB RuPay Select Debit Card",
+      "issuer": "Punjab National Bank",
+      "card_type": "Debit",
+      "network": "RuPay",
+      "tier": "Select",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 500,
+        "annual_fee": 500,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 300000
+      },
+      "rewards": {
+        "summary": "Complimentary health checkup, spa & gym membership"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr, 2 International/yr"
+      }
+    },
+    {
+      "card_id": "dc_047_punjab_national_bank_pnb_visa_gold_debit_card",
+      "card_name": "PNB Visa Gold Debit Card",
+      "issuer": "Punjab National Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Gold",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 150,
+        "annual_fee": 150,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 50000,
+        "daily_pos_online_limit_inr": 125000
+      },
+      "rewards": {
+        "summary": "1 PNB Rewardz point per ₹100"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_048_canara_bank_canara_rupay_select_debit_card",
+      "card_name": "Canara RuPay Select Debit Card",
+      "issuer": "Canara Bank",
+      "card_type": "Debit",
+      "network": "RuPay",
+      "tier": "Select",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 500,
+        "annual_fee": 500,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 300000
+      },
+      "rewards": {
+        "summary": "Complimentary OTT subscription & health checkup"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr, 2 International/yr"
+      }
+    },
+    {
+      "card_id": "dc_049_canara_bank_canara_mastercard_world_card",
+      "card_name": "Canara Mastercard World Card",
+      "issuer": "Canara Bank",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 300,
+        "annual_fee": 300,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 50000,
+        "daily_pos_online_limit_inr": 200000
+      },
+      "rewards": {
+        "summary": "Reward points on POS & e-commerce"
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_050_yes_bank_yes_premia_world_debit_card",
+      "card_name": "YES Premia World Debit Card",
+      "issuer": "YES Bank",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "World",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 0,
+        "annual_fee": 0,
+        "foreign_transaction_markup_percent": 2.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 150000,
+        "daily_pos_online_limit_inr": 400000
+      },
+      "rewards": {
+        "summary": "6 YES Rewardz points per ₹200"
+      },
+      "perks": {
+        "airport_lounge_access": "2 Domestic/qtr"
+      }
+    },
+    {
+      "card_id": "dc_051_yes_bank_yes_prosperity_platinum_card",
+      "card_name": "YES Prosperity Platinum Card",
+      "issuer": "YES Bank",
+      "card_type": "Debit",
+      "network": "Mastercard",
+      "tier": "Platinum",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 299,
+        "annual_fee": 299,
+        "foreign_transaction_markup_percent": 3.5
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 75000,
+        "daily_pos_online_limit_inr": 200000
+      },
+      "rewards": {
+        "summary": "2 YES Rewardz points per ₹200"
+      },
+      "perks": {
+        "airport_lounge_access": "None"
+      }
+    },
+    {
+      "card_id": "dc_052_federal_bank_fi_money_zero_forex_debit_card",
+      "card_name": "Fi Money Zero-Forex Debit Card",
+      "issuer": "Federal Bank",
+      "card_type": "Debit",
+      "network": "Visa",
+      "tier": "Infinite",
+      "country": "India",
+      "currency": "INR",
+      "fees": {
+        "issuance_fee": 299,
+        "annual_fee": 299,
+        "foreign_transaction_markup_percent": 0.0
+      },
+      "limits": {
+        "daily_atm_withdrawal_limit_inr": 100000,
+        "daily_pos_online_limit_inr": 300000
+      },
+      "rewards": {
+        "summary": "Zero forex markup + up to 2% back in Fi-Coins"
+      },
+      "perks": {
+        "airport_lounge_access": "1 Domestic/qtr"
+      }
+    }
+  ]
+}
