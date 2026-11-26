@@ -1,0 +1,13 @@
+{
+  "name": "finlens",
+  "version": "1.0.0",
+  "description": "FinLens financial product discovery and loan affordability platform",
+  "main": "express_backend_server.js",
+  "scripts": {
+    "start": "node express_backend_server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

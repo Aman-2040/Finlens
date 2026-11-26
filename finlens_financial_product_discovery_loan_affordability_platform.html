@@ -1,0 +1,3080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinLens — Financial Product Discovery & Loan Affordability Platform</title>
+  <style>
+    /* =====================================================================
+       1. DESIGN TOKENS & BASE STYLES
+       Clean, restrained navy, deep green, and soft neutral palette
+       ===================================================================== */
+    :root {
+      --bg-page: #f6f8fa;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --text-main: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --green-primary: #108952;
+      --green-dark: #0d6e42;
+      --green-soft: #ecfdf5;
+      --green-border: #a7f3d0;
+      --amber-soft: #fffbeb;
+      --amber-border: #fde68a;
+      --amber-text: #92400e;
+      --border-color: #e2e8f0;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 6px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    /* =====================================================================
+       2. NAVIGATION HEADER
+       ===================================================================== */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border-color);
+      backdrop-filter: blur(6px);
+    }
+
+    .topbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--green-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    .brand span {
+      color: var(--green-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      border-radius: 10px;
+      padding: 8px 13px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-btn:hover {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+    }
+
+    .nav-btn.active {
+      background: var(--green-soft);
+      color: var(--green-primary);
+      font-weight: 700;
+    }
+
+    .brand-pill {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      border: 1px solid var(--green-border);
+      padding: 5px 11px;
+      border-radius: 999px;
+    }
+
+    /* =====================================================================
+       3. LAYOUT & REUSABLE COMPONENTS
+       ===================================================================== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 20px 64px;
+    }
+
+    .page-section {
+      display: none;
+    }
+
+    .page-section.active {
+      display: block;
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 11px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .btn-primary {
+      background: var(--green-primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-subtle);
+    }
+
+    .btn-sm {
+      padding: 7px 12px;
+      font-size: 0.8rem;
+      border-radius: 9px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 7px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+    }
+
+    .tag-green {
+      background: var(--green-soft);
+      color: var(--green-primary);
+    }
+
+    .tag-amber {
+      background: var(--amber-soft);
+      color: var(--amber-text);
+      border: 1px solid var(--amber-border);
+    }
+
+    .disclaimer-box {
+      margin-top: 24px;
+      background: var(--amber-soft);
+      border: 1px solid var(--amber-border);
+      color: var(--amber-text);
+      border-radius: var(--radius-md);
+      padding: 13px 16px;
+      font-size: 0.82rem;
+    }
+
+    .section-header {
+      margin-bottom: 20px;
+    }
+
+    .section-header h1 {
+      margin: 0 0 6px;
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+    }
+
+    /* Form controls */
+    .field-group {
+      margin-bottom: 16px;
+    }
+
+    .field-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .input-box,
+    .select-box {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      background: #fff;
+    }
+
+    .input-box:focus,
+    .select-box:focus {
+      outline: none;
+      border-color: var(--green-primary);
+    }
+
+    .helper-text {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .error-text {
+      color: #dc2626;
+      font-size: 0.76rem;
+      font-weight: 600;
+    }
+
+    /* =====================================================================
+       4. DASHBOARD (HOME) STYLES
+       ===================================================================== */
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 22px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      border: 1px solid var(--green-border);
+      color: var(--green-primary);
+      font-size: 0.76rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: 2.35rem;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    .hero h1 span {
+      color: var(--green-primary);
+    }
+
+    .hero p {
+      margin: 0 0 20px;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .hero-card-art {
+      width: 100%;
+      max-width: 310px;
+      height: 175px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+      color: #fff;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-md);
+    }
+
+    .chip-box {
+      width: 36px;
+      height: 24px;
+      border-radius: 5px;
+      background: #fcd34d;
+    }
+
+    .suggestions-panel {
+      background: linear-gradient(135deg, #f0fdf4, #ffffff);
+      border: 1.5px solid var(--green-border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .suggestion-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .suggestion-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .suggestion-card.top-pick {
+      border: 2px solid var(--green-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .savings-hero-num {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--green-primary);
+      line-height: 1.15;
+    }
+
+    .cat-breakdown {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      font-size: 0.72rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .suggestion-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .suggestion-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .floating-estimate {
+      width: 100%;
+      max-width: 270px;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-top: -36px;
+      margin-right: 44px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .feature-card {
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.15s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--green-primary);
+    }
+
+    .feature-card h2 {
+      margin: 0 0 8px;
+      font-size: 1.12rem;
+    }
+
+    .feature-card p {
+      margin: 0 0 14px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .feature-footer {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--bg-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--green-primary);
+    }
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 18px;
+    }
+
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .stat-tile {
+      background: var(--bg-page);
+      border: 1px solid var(--border-color);
+      border-radius: 11px;
+      padding: 11px;
+    }
+
+    .stat-tile .lbl {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .stat-tile .val {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-top: 3px;
+    }
+
+    /* =====================================================================
+       5. CARD EXPLORER & COMPARISON STYLES
+       ===================================================================== */
+    .explorer-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .segmented {
+      display: inline-flex;
+      background: #e2e8f0;
+      padding: 4px;
+      border-radius: 11px;
+      gap: 4px;
+    }
+
+    .segmented button {
+      border: none;
+      background: transparent;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .segmented button.active {
+      background: #fff;
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .toolbar-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .summary-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .explorer-layout {
+      display: grid;
+      grid-template-columns: 265px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .filter-block {
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--bg-subtle);
+    }
+
+    .filter-block:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.86rem;
+      margin-bottom: 7px;
+      cursor: pointer;
+    }
+
+    .check-row label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .bank-card {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .bank-card.selected {
+      border-color: var(--green-primary);
+      box-shadow: 0 0 0 2px rgba(16, 137, 82, 0.2);
+    }
+
+    .bank-card-top {
+      padding: 15px;
+      color: #fff;
+      height: 122px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bg-emerald { background: linear-gradient(135deg, #059669, #065f46); }
+    .bg-blue { background: linear-gradient(135deg, #2563eb, #1e3a8a); }
+    .bg-purple { background: linear-gradient(135deg, #7c3aed, #4c1d95); }
+    .bg-slate { background: linear-gradient(135deg, #334155, #0f172a); }
+    .bg-amber { background: linear-gradient(135deg, #b45309, #451a03); }
+
+    .bank-card-body {
+      padding: 15px;
+    }
+
+    .mini-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+    .mini-box {
+      background: var(--bg-page);
+      padding: 8px 10px;
+      border-radius: 9px;
+    }
+
+    .mini-box .k {
+      font-size: 0.66rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .mini-box .v {
+      font-size: 0.85rem;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+
+    .bank-card-foot {
+      padding: 11px 15px;
+      border-top: 1px solid var(--bg-subtle);
+      background: #fafafa;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+
+    /* Sticky compare bar */
+    .compare-tray {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 45;
+      background: #0f172a;
+      color: #fff;
+      padding: 11px 18px;
+      border-radius: 14px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      width: min(760px, 94vw);
+      box-shadow: var(--shadow-md);
+    }
+
+    .compare-tray.visible {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .compare-table-wrap {
+      overflow-x: auto;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+    }
+
+    table.compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 640px;
+      font-size: 0.88rem;
+    }
+
+    table.compare-table th,
+    table.compare-table td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--bg-subtle);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    table.compare-table th.attr-col,
+    table.compare-table td.attr-col {
+      width: 190px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: #fafafa;
+    }
+
+    .best-tick {
+      display: inline-block;
+      margin-left: 6px;
+      background: var(--green-soft);
+      color: var(--green-primary);
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 1px 6px;
+      border-radius: 999px;
+    }
+
+    /* =====================================================================
+       6. PLAN-A-GOAL & EMI CHECK STYLES
+       ===================================================================== */
+    .two-col-planner {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .pill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .choice-pill {
+      padding: 7px 11px;
+      border-radius: 9px;
+      border: 1px solid var(--border-color);
+      background: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .choice-pill.active {
+      background: var(--green-soft);
+      border-color: var(--green-primary);
+      color: var(--green-primary);
+      font-weight: 700;
+    }
+
+    .offer-card {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .offer-card.highlight {
+      border-color: var(--green-primary);
+      box-shadow: 0 0 0 1px var(--green-primary);
+    }
+
+    .offer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .offer-metrics {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--bg-subtle);
+    }
+
+    .offer-metrics .m-lbl {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .offer-metrics .m-val {
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+
+    .offer-metrics .m-val.big {
+      font-size: 1.2rem;
+    }
+
+    .offer-bottom {
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.82rem;
+    }
+
+    /* EMI Check Dashboard */
+    .emi-top-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .verdict-box {
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      border: 1px solid var(--green-border);
+      background: var(--green-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .verdict-box.manageable {
+      background: #fffbeb;
+      border-color: #fde68a;
+    }
+
+    .verdict-box.risky {
+      background: #fff7ed;
+      border-color: #fed7aa;
+    }
+
+    .verdict-box.not-rec {
+      background: #fef2f2;
+      border-color: #fecaca;
+    }
+
+    .stacked-bar {
+      height: 14px;
+      border-radius: 999px;
+      background: var(--bg-subtle);
+      overflow: hidden;
+      display: flex;
+      margin: 14px 0;
+    }
+
+    .legend-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+      font-size: 0.82rem;
+    }
+
+    .legend-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+      border-bottom: 1px solid var(--bg-subtle);
+    }
+
+    .dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 60;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #fff;
+      border-radius: 18px;
+      max-width: 540px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Toast message */
+    .toast {
+      position: fixed;
+      top: 72px;
+      right: 20px;
+      background: #0f172a;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      z-index: 70;
+      display: none;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* =====================================================================
+       7. RESPONSIVE MEDIA QUERIES
+       ===================================================================== */
+    @media (max-width: 960px) {
+      .hero,
+      .bottom-grid,
+      .explorer-layout,
+      .two-col-planner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        align-items: flex-start;
+      }
+
+      .floating-estimate {
+        margin-right: 0;
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .offer-metrics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .grid-3,
+      .cards-grid,
+      .emi-top-grid,
+      .profile-stats,
+      .legend-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 1.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Shared Top Navigation -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <button class="brand" onclick="if(appState.registered) showPage('home')">
+        <div class="brand-icon">↗</div>
+        Fin<span>Lens</span>
+      </button>
+
+      <nav id="main-nav" class="nav-links" aria-label="Primary Navigation" style="display:none;">
+        <button class="nav-btn active" data-page="home" onclick="showPage('home')">Home</button>
+        <button class="nav-btn" data-page="cards" onclick="openCardCatalog('all')">Card Explorer</button>
+        <button class="nav-btn" data-page="plan" onclick="showPage('plan')">Plan a Goal</button>
+        <button class="nav-btn" data-page="emi" onclick="showPage('emi')">EMI Check</button>
+        <button class="nav-btn" data-page="about" onclick="showPage('about')">About</button>
+      </nav>
+
+      <span class="brand-pill">INDIA • CARDS &amp; LOANS</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===================================================================
+         SCREEN 0: REGISTRATION & EXPENSE PORTFOLIO SETUP (ENTRY PAGE)
+         =================================================================== -->
+    <section id="page-register" class="page-section active">
+      <div class="card" style="max-width:840px; margin:14px auto; padding:28px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px;">
+          <div>
+            <span class="hero-badge" style="margin-bottom:8px;">Step 1 • Profile &amp; Expense Setup</span>
+            <h1 style="margin:0; font-size:1.8rem; font-weight:800; letter-spacing:-0.02em;">Welcome to FinLens</h1>
+            <p style="margin:6px 0 0; font-size:0.94rem; color:var(--text-secondary); max-width:620px;">
+              Register your monthly income, EMIs, and expense portfolio first. We save this in your browser and use it to recommend the highest-saving cards and check loan affordability across the website.
+            </p>
+          </div>
+          <span class="tag tag-green" id="prof-saved-badge">Saved</span>
+        </div>
+
+        <form id="profile-form" onsubmit="saveProfile(event)" style="margin-top:20px;">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(155px, 1fr)); gap:10px;">
+            <div>
+              <label class="field-label">Your Name (Optional)</label>
+              <input type="text" id="prof-in-name" class="input-box" placeholder="e.g. Aman" oninput="updateProfileTotalsPreview()" />
+            </div>
+            <div>
+              <label class="field-label">Monthly Income (₹)</label>
+              <input type="number" id="prof-in-income" class="input-box" min="1000" required oninput="updateProfileTotalsPreview()" />
+            </div>
+            <div>
+              <label class="field-label">Existing EMIs (₹)</label>
+              <input type="number" id="prof-in-emis" class="input-box" min="0" required oninput="updateProfileTotalsPreview()" />
+            </div>
+            <div>
+              <label class="field-label">CIBIL Band</label>
+              <select id="prof-in-cibil" class="select-box">
+                <option value="Below 650">Below 650</option>
+                <option value="650-699">650–699</option>
+                <option value="700-749">700–749</option>
+                <option value="750-799">750–799</option>
+                <option value="800+">800+</option>
+                <option value="Not sure">Not sure</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--bg-subtle);">
+            <div class="field-label" style="margin-bottom:4px;">
+              <span>Monthly Expense Portfolio (₹ / month)</span>
+              <span class="helper-text">Used to estimate exact category rewards &amp; annual savings</span>
+            </div>
+            <div class="portfolio-grid">
+              <div>
+                <label class="helper-text" style="display:block; font-weight:600; color:var(--text-secondary);">Living &amp; Offline Retail</label>
+                <input type="number" id="prof-in-offline" class="input-box" min="0" required oninput="updateProfileTotalsPreview()" />
+              </div>
+              <div>
+                <label class="helper-text" style="display:block; font-weight:600; color:var(--text-secondary);">Online Shopping</label>
+                <input type="number" id="prof-in-online" class="input-box" min="0" required oninput="updateProfileTotalsPreview()" />
+              </div>
+              <div>
+                <label class="helper-text" style="display:block; font-weight:600; color:var(--text-secondary);">Dining &amp; Food</label>
+                <input type="number" id="prof-in-dining" class="input-box" min="0" required oninput="updateProfileTotalsPreview()" />
+              </div>
+              <div>
+                <label class="helper-text" style="display:block; font-weight:600; color:var(--text-secondary);">Travel &amp; Commute</label>
+                <input type="number" id="prof-in-travel" class="input-box" min="0" required oninput="updateProfileTotalsPreview()" />
+              </div>
+              <div>
+                <label class="helper-text" style="display:block; font-weight:600; color:var(--text-secondary);">Utilities &amp; Bills</label>
+                <input type="number" id="prof-in-utility" class="input-box" min="0" required oninput="updateProfileTotalsPreview()" />
+              </div>
+              <div>
+                <label class="helper-text" style="display:block; font-weight:600; color:var(--text-secondary);">Rent / Fixed Housing</label>
+                <input type="number" id="prof-in-rent" class="input-box" min="0" required oninput="updateProfileTotalsPreview()" />
+              </div>
+            </div>
+          </div>
+
+          <div id="profile-summary" class="profile-stats" style="margin-top:16px;">
+            <div class="stat-tile">
+              <div class="lbl">Total Expenses</div>
+              <div class="val" id="prof-disp-expenses">₹30,000</div>
+            </div>
+            <div class="stat-tile">
+              <div class="lbl">Card-Eligible Spend</div>
+              <div class="val" id="prof-disp-card-spend" style="color:var(--green-primary);">₹18,000/mo</div>
+            </div>
+            <div class="stat-tile">
+              <div class="lbl">Annual Card Spend</div>
+              <div class="val" id="prof-disp-annual-spend">₹2,16,000</div>
+            </div>
+            <div class="stat-tile">
+              <div class="lbl">Monthly Cashflow</div>
+              <div class="val" id="prof-disp-cashflow">₹45,000</div>
+            </div>
+          </div>
+
+          <div style="margin-top:18px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <button type="button" onclick="skipRegistration()" style="background:none; border:none; color:var(--text-muted); font-weight:600; font-size:0.84rem; cursor:pointer; padding:4px 0;">Skip &amp; browse with defaults →</button>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button type="button" class="btn btn-secondary" onclick="generateCardSuggestionsFromHome()">Save &amp; See Card Suggestions</button>
+              <button type="submit" class="btn btn-primary">Save &amp; Proceed to FinLens →</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SCREEN 1: DASHBOARD (HOME)
+         =================================================================== -->
+    <section id="page-home" class="page-section">
+      <div class="hero">
+        <div>
+          <span id="home-welcome-badge" class="hero-badge">Information &amp; estimation tool • not a lender</span>
+          <h1>Plan smarter.<br /><span>Borrow with clarity.</span></h1>
+          <p>
+            See every card, loan, and EMI with clarity. Compare debit &amp; credit cards, turn a financial goal into realistic loan options, and check whether an EMI fits your monthly budget.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="showPage('plan')">Plan a goal →</button>
+            <button class="btn btn-secondary" onclick="openCardCatalog('all')">Explore cards</button>
+            <button class="btn btn-secondary" onclick="showPage('emi')">Check EMI affordability</button>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-art">
+            <div style="display:flex; justify-content:space-between; font-size:0.72rem; font-weight:700; letter-spacing:0.06em;">
+              <span>MILLENNIA REWARDS</span>
+              <span style="background:rgba(255,255,255,0.2); padding:2px 7px; border-radius:4px;">CARD</span>
+            </div>
+            <div class="chip-box"></div>
+            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700;">
+              <span style="font-family:monospace;">•••• •••• •••• 0000</span>
+              <span>MASTERCARD</span>
+            </div>
+          </div>
+
+          <div class="floating-estimate">
+            <div style="font-size:0.68rem; font-weight:700; color:#64748b; text-transform:uppercase;">EMI Estimate • Auto Loan</div>
+            <div style="font-size:1.45rem; font-weight:800; margin:2px 0;">₹19,360 <span style="font-size:0.78rem; font-weight:500; color:#64748b;">/ month</span></div>
+            <div style="height:7px; border-radius:999px; background:#e2e8f0; overflow:hidden; display:flex; margin:8px 0;">
+              <div style="width:55%; background:#108952;"></div>
+              <div style="width:20%; background:#38bdf8;"></div>
+              <div style="width:25%; background:#fbbf24;"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.76rem;">
+              <span style="color:#64748b;">₹6,00,000 • 36 months</span>
+              <span class="tag tag-green">Good</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Three Main Entry Cards -->
+      <div class="grid-3">
+        <div class="card feature-card" onclick="openCardCatalog('all')">
+          <div>
+            <h2>Card Explorer</h2>
+            <p>Search, filter and compare debit and credit cards together across basic, standard, premium and platinum tiers.</p>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <span class="tag">Debit &amp; Credit</span>
+              <span class="tag">Fees &amp; Waivers</span>
+              <span class="tag">Limits &amp; Perks</span>
+            </div>
+          </div>
+          <div class="feature-footer">
+            <div>
+              <span onclick="event.stopPropagation(); openCardCatalog('all')">All</span> •
+              <span onclick="event.stopPropagation(); openCardCatalog('debit')">Debit</span> •
+              <span onclick="event.stopPropagation(); openCardCatalog('credit')">Credit</span>
+            </div>
+            <span>→</span>
+          </div>
+        </div>
+
+        <div class="card feature-card" onclick="showPage('plan')">
+          <div>
+            <h2>Plan a Goal</h2>
+            <p>Pick one of nine goals, an amount and a tenure to see Indian lender loan offers with a calculated EMI.</p>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <span class="tag">9 goals</span>
+              <span class="tag">EMI</span>
+              <span class="tag">CIBIL band</span>
+            </div>
+          </div>
+          <div class="feature-footer">
+            <span>Open</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <div class="card feature-card" onclick="showPage('emi')">
+          <div>
+            <h2>EMI Check</h2>
+            <p>Test whether an EMI fits your income, expenses and existing EMIs, with every formula shown.</p>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <span class="tag">FOIR</span>
+              <span class="tag">Disposable income</span>
+              <span class="tag">Verdict</span>
+            </div>
+          </div>
+          <div class="feature-footer">
+            <span>Open</span>
+            <span>→</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Registered Profile Summary + How It Works -->
+      <div class="bottom-grid" id="home-profile-section">
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap;">
+            <div>
+              <h3 style="margin:0; font-size:1.05rem;">Your registered profile &amp; expense portfolio</h3>
+              <div class="helper-text">Saved in this browser — powers Card Suggestions and EMI Check</div>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="showPage('register')">Edit Registration</button>
+          </div>
+
+          <div class="profile-stats" style="margin-top:14px;">
+            <div class="stat-tile">
+              <div class="lbl">Monthly Income</div>
+              <div class="val" id="home-prof-income">₹80,000</div>
+            </div>
+            <div class="stat-tile">
+              <div class="lbl">Total Expenses</div>
+              <div class="val" id="home-prof-expenses">₹30,000</div>
+            </div>
+            <div class="stat-tile">
+              <div class="lbl">Card-Eligible Spend</div>
+              <div class="val" id="home-prof-card-spend" style="color:var(--green-primary);">₹18,000/mo</div>
+            </div>
+            <div class="stat-tile">
+              <div class="lbl">CIBIL Band</div>
+              <div class="val" id="home-prof-cibil">750–799</div>
+            </div>
+          </div>
+
+          <div id="home-prof-spend-tags" class="cat-breakdown" style="margin-top:12px;"></div>
+
+          <div style="margin-top:14px; display:flex; justify-content:flex-end;">
+            <button type="button" class="btn btn-primary btn-sm" onclick="openSuggestedCards()">Generate Card Suggestions →</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 12px; font-size:1rem;">How it works</h3>
+          <ol style="margin:0; padding-left:20px; font-size:0.88rem; color:var(--text-secondary); display:flex; flex-direction:column; gap:10px;">
+            <li><strong style="color:var(--text-main);">Register once at the start</strong> — Your income and spend portfolio (living, online, dining, travel, utilities) are saved in your browser.</li>
+            <li><strong style="color:var(--text-main);">Generate card suggestions</strong> — See the top cards ranked by net annual savings after fees and fee waivers.</li>
+            <li><strong style="color:var(--text-main);">Plan loans &amp; EMI</strong> — Your saved income, expenses, and EMIs carry straight into EMI Check and Plan a Goal.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="disclaimer-box">
+        <strong>Estimates only.</strong> Figures are indicative and based on published bank schedules and the numbers you enter. This is not financial advice or a lending decision, and FinLens does not connect to bank accounts.
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SCREEN 2: COMMON CARD EXPLORER (DEBIT & CREDIT) + COMPARE
+         =================================================================== -->
+    <section id="page-cards" class="page-section">
+      <!-- Explorer Panel -->
+      <div id="cards-browser-view">
+        <div class="explorer-toolbar">
+          <div>
+            <h1 id="cards-heading" style="margin:0; font-size:1.7rem; font-weight:800;">Card Explorer</h1>
+            <p id="cards-sub" style="margin:4px 0 0; font-size:0.9rem; color:var(--text-secondary);">
+              Browse debit and credit cards together by type, tier, fees, limits and perks. Select up to three to compare.
+            </p>
+          </div>
+
+          <div class="toolbar-controls">
+            <div class="segmented">
+              <button id="seg-all" class="active" onclick="setCardType('all')">All Cards</button>
+              <button id="seg-debit" onclick="setCardType('debit')">Debit Cards</button>
+              <button id="seg-credit" onclick="setCardType('credit')">Credit Cards</button>
+            </div>
+
+            <input type="text" id="card-search" class="input-box" style="width:220px;" placeholder="Search by bank or card name" oninput="renderCards()" />
+
+            <select id="card-sort" class="select-box" style="width:205px;" onchange="renderCards()">
+              <option value="popular">Most popular</option>
+              <option value="savings">Best savings for your spend</option>
+              <option value="rewards">Highest rewards / cashback</option>
+              <option value="beginner">Beginner friendly</option>
+              <option value="fee">Lowest annual fee</option>
+            </select>
+
+            <button id="toggle-suggestions-btn" class="btn btn-primary btn-sm" onclick="toggleCardSuggestions()">Generate Card Suggestions</button>
+          </div>
+        </div>
+
+        <!-- Personalized Card Suggestions & Savings Panel -->
+        <div id="card-suggestions-panel" class="suggestions-panel" style="display:none;"></div>
+
+        <!-- Live Computed Summary Strip -->
+        <div id="cards-summary" class="summary-strip"></div>
+
+        <div class="explorer-layout">
+          <!-- Filters Sidebar -->
+          <aside class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <strong style="font-size:0.95rem;">Filters</strong>
+              <button onclick="resetCardFilters()" style="background:none; border:none; color:var(--green-primary); font-weight:700; font-size:0.8rem; cursor:pointer;">Clear all</button>
+            </div>
+
+            <div class="filter-block">
+              <div class="field-label">Card Tier</div>
+              <div id="tier-checkboxes"></div>
+            </div>
+
+            <div class="filter-block">
+              <div class="field-label">Annual Fee</div>
+              <div class="check-row"><label><input type="radio" name="feeOpt" value="any" checked onchange="renderCards()" /> Any</label></div>
+              <div class="check-row"><label><input type="radio" name="feeOpt" value="zero" onchange="renderCards()" /> ₹0 (No fee)</label></div>
+              <div class="check-row"><label><input type="radio" name="feeOpt" value="under1000" onchange="renderCards()" /> Under ₹1,000</label></div>
+              <div class="check-row"><label><input type="radio" name="feeOpt" value="1000plus" onchange="renderCards()" /> ₹1,000 and above</label></div>
+            </div>
+
+            <div class="filter-block">
+              <div class="field-label">
+                <span id="slider-metric-title">Max Min. Balance / Income</span>
+                <span id="slider-metric-val" style="color:var(--green-primary);">Up to ₹10,00,000</span>
+              </div>
+              <input type="range" id="card-max-req" min="0" max="1000000" step="10000" value="1000000" style="width:100%;" oninput="updateCardSliderLabel(); renderCards();" />
+            </div>
+
+            <div class="filter-block">
+              <div class="field-label">Network</div>
+              <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                <button type="button" class="choice-pill" data-net="Visa" onclick="toggleNetwork('Visa')">Visa</button>
+                <button type="button" class="choice-pill" data-net="Mastercard" onclick="toggleNetwork('Mastercard')">Mastercard</button>
+                <button type="button" class="choice-pill" data-net="RuPay" onclick="toggleNetwork('RuPay')">RuPay</button>
+              </div>
+            </div>
+
+            <div class="filter-block">
+              <div class="field-label">Perks</div>
+              <div class="check-row"><label><input type="checkbox" id="chk-lounge" onchange="renderCards()" /> Lounge access</label></div>
+              <div class="check-row"><label><input type="checkbox" id="chk-cashback" onchange="renderCards()" /> <span id="lbl-cashback-perk">Cashback</span></label></div>
+              <div class="check-row"><label><input type="checkbox" id="chk-insurance" onchange="renderCards()" /> Insurance cover</label></div>
+              <div class="check-row" id="row-waiver-perk" style="display:none;"><label><input type="checkbox" id="chk-waiver" onchange="renderCards()" /> Annual fee waiver</label></div>
+            </div>
+          </aside>
+
+          <!-- Cards Grid -->
+          <div>
+            <div id="cards-grid" class="cards-grid"></div>
+            <div id="cards-empty" class="card" style="display:none; text-align:center; padding:40px;">
+              <h3 style="margin:0 0 6px;">No cards match your filters</h3>
+              <p class="helper-text" style="margin-bottom:14px;">Try widening your slider or clearing active filters.</p>
+              <button class="btn btn-primary btn-sm" onclick="resetCardFilters()">Reset filters</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Side-by-Side Comparison View -->
+      <div id="cards-compare-view" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
+          <div>
+            <h1 style="margin:0; font-size:1.7rem; font-weight:800;">Compare cards</h1>
+            <p style="margin:4px 0 0; font-size:0.9rem; color:var(--text-secondary);">Side-by-side view of up to three cards. Green ticks mark the strongest value in each row.</p>
+          </div>
+          <button class="btn btn-secondary" onclick="closeCompareView()">← Back to explorer</button>
+        </div>
+
+        <div class="compare-table-wrap">
+          <table id="compare-table" class="compare-table"></table>
+        </div>
+
+        <div class="disclaimer-box">
+          <strong>Missing data is never guessed.</strong> Values the issuer has not published are shown as <em>"Not published"</em> so nothing is invented. Source: published issuer schedules and MITCs.
+        </div>
+      </div>
+
+      <!-- Sticky Bottom Compare Tray -->
+      <div id="compare-tray" class="compare-tray">
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span id="tray-count" class="tag tag-green" style="font-weight:800;">Compare 0/3</span>
+          <div id="tray-chips" style="display:flex; gap:6px; flex-wrap:wrap;"></div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <button class="btn btn-secondary btn-sm" onclick="clearCompare()">Clear</button>
+          <button id="tray-open-btn" class="btn btn-primary btn-sm" onclick="openCompareView()">Compare now →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SCREEN 4: PLAN-A-GOAL LOAN PLANNER
+         =================================================================== -->
+    <section id="page-plan" class="page-section">
+      <div class="section-header">
+        <h1>Plan a Goal</h1>
+        <p>Tell us what you are planning. We match it with Indian lender loan options and calculate your EMI.</p>
+      </div>
+
+      <div class="two-col-planner">
+        <!-- Left Input Form -->
+        <div class="card">
+          <div class="field-group">
+            <div class="field-label">1 • Your Goal</div>
+            <div id="goal-pills" class="pill-grid"></div>
+            <div id="goal-note" class="helper-text" style="margin-top:8px;"></div>
+          </div>
+
+          <div class="field-group" style="padding-top:14px; border-top:1px solid var(--bg-subtle);">
+            <div class="field-label">
+              <span>2 • Loan Amount</span>
+              <span id="plan-amt-err" class="error-text"></span>
+            </div>
+            <input type="number" id="plan-amount" class="input-box" oninput="onPlanAmountChange()" />
+            <input type="range" id="plan-amount-slider" style="width:100%; margin-top:10px;" oninput="onPlanAmountSlider()" />
+            <div style="display:flex; justify-content:space-between;" class="helper-text">
+              <span id="plan-amt-min">₹1,00,000</span>
+              <span id="plan-amt-max">₹1,50,00,000</span>
+            </div>
+          </div>
+
+          <div class="field-group" style="padding-top:14px; border-top:1px solid var(--bg-subtle);">
+            <div class="field-label">
+              <span>3 • Repayment Tenure (Months)</span>
+              <span id="plan-ten-err" class="error-text"></span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <input type="number" id="plan-tenure" class="input-box" style="width:120px;" oninput="onPlanTenureChange()" />
+              <span id="plan-years-text" class="helper-text" style="font-size:0.85rem;">months (3 years)</span>
+            </div>
+            <input type="range" id="plan-tenure-slider" style="width:100%; margin-top:10px;" oninput="onPlanTenureSlider()" />
+            <div style="display:flex; justify-content:space-between;" class="helper-text">
+              <span id="plan-ten-min">12 months</span>
+              <span id="plan-ten-max">Allowed: 12–84</span>
+            </div>
+          </div>
+
+          <div class="field-group" style="padding-top:14px; border-top:1px solid var(--bg-subtle);">
+            <div class="field-label">4 • CIBIL Score Range (Optional)</div>
+            <div id="plan-cibil-pills" class="pill-grid"></div>
+          </div>
+
+          <button class="btn btn-primary" style="width:100%;" onclick="renderOffers(true)">Show loan options</button>
+        </div>
+
+        <!-- Right Loan Offers -->
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
+            <div>
+              <h2 id="offers-title" style="margin:0; font-size:1.15rem; font-weight:800;">4 loan offers • Auto Loan</h2>
+              <div id="offers-subtitle" class="helper-text"></div>
+            </div>
+            <button id="compare-offers-btn" class="btn btn-secondary btn-sm" style="display:none;" onclick="openOfferCompare()">Compare selected (0/3)</button>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+            <span class="helper-text" style="margin-right:4px;">Sort by:</span>
+            <button class="choice-pill active" data-osort="rate" onclick="setOfferSort('rate')">Lowest rate</button>
+            <button class="choice-pill" data-osort="emi" onclick="setOfferSort('emi')">Lowest EMI</button>
+            <button class="choice-pill" data-osort="disbursal" onclick="setOfferSort('disbursal')">Fastest disbursal</button>
+            <button class="choice-pill" data-osort="popular" onclick="setOfferSort('popular')">Most popular</button>
+          </div>
+
+          <div id="offers-list"></div>
+
+          <div class="disclaimer-box">
+            <strong>All offers and calculations are indicative estimates.</strong> Interest rates shift within each lender's range by CIBIL band, and final terms are set by lenders.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SCREEN 5: EMI AFFORDABILITY ADVISOR (EMI CHECK)
+         =================================================================== -->
+    <section id="page-emi" class="page-section">
+      <div class="section-header">
+        <h1>EMI Affordability Advisor</h1>
+        <p>See the numbers behind the result. Every obligation is counted exactly once.</p>
+      </div>
+
+      <div class="two-col-planner">
+        <!-- Left Inputs -->
+        <div class="card">
+          <h3 style="margin:0 0 14px; font-size:1rem;">Your monthly budget</h3>
+
+          <div class="field-group">
+            <div class="field-label">
+              <span>Monthly Income (Take-Home)</span>
+              <span id="emi-annual-text" style="color:var(--green-primary);">₹9,60,000 / yr</span>
+            </div>
+            <input type="number" id="emi-income" class="input-box" value="80000" min="1000" oninput="runEmiCheck()" />
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Monthly Living Expenses</label>
+            <input type="number" id="emi-expenses" class="input-box" value="30000" min="0" oninput="runEmiCheck()" />
+            <div class="helper-text">Rent, food, bills, travel. <strong>Do not</strong> include loan EMIs here.</div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Existing Monthly EMIs</label>
+            <input type="number" id="emi-existing" class="input-box" value="5000" min="0" oninput="runEmiCheck()" />
+            <div class="helper-text">Total of all current loan EMIs, counted once.</div>
+          </div>
+
+          <div style="padding-top:14px; border-top:1px solid var(--bg-subtle);">
+            <h3 style="margin:0 0 10px; font-size:1rem;">Proposed loan</h3>
+
+            <div class="segmented" style="width:100%; margin-bottom:14px;">
+              <button id="emi-mode-loan" class="active" style="flex:1;" onclick="setEmiMode('loan')">Amount, rate &amp; tenure</button>
+              <button id="emi-mode-direct" style="flex:1;" onclick="setEmiMode('direct')">I know the EMI</button>
+            </div>
+
+            <div id="emi-loan-inputs">
+              <div class="field-group">
+                <label class="field-label">Loan Amount (₹)</label>
+                <input type="number" id="emi-principal" class="input-box" value="600000" min="1000" oninput="runEmiCheck()" />
+              </div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;" class="field-group">
+                <div>
+                  <label class="field-label">Interest Rate (% p.a.)</label>
+                  <input type="number" id="emi-rate" class="input-box" value="10.00" min="0" max="45" step="0.05" oninput="runEmiCheck()" />
+                </div>
+                <div>
+                  <label class="field-label">Tenure (Months)</label>
+                  <input type="number" id="emi-tenure" class="input-box" value="36" min="1" max="360" oninput="runEmiCheck()" />
+                </div>
+              </div>
+            </div>
+
+            <div id="emi-direct-input" class="field-group" style="display:none;">
+              <label class="field-label">Proposed Monthly EMI (₹)</label>
+              <input type="number" id="emi-known" class="input-box" value="19360" min="0" oninput="runEmiCheck()" />
+            </div>
+
+            <div class="field-group">
+              <div class="field-label">CIBIL Band (Optional)</div>
+              <div id="emi-cibil-pills" class="pill-grid"></div>
+            </div>
+
+            <button class="btn btn-primary" style="width:100%; margin-bottom:8px;" onclick="runEmiCheck(true)">Calculate</button>
+            <button class="btn btn-secondary btn-sm" style="width:100%;" onclick="saveEmiBudgetToProfile()">Save budget figures to browser</button>
+          </div>
+        </div>
+
+        <!-- Right Results -->
+        <div>
+          <div id="emi-error-banner" class="disclaimer-box" style="display:none; background:#fef2f2; border-color:#fecaca; color:#991b1b; margin-top:0; margin-bottom:16px;">
+            Please enter a valid positive Monthly Income to calculate affordability.
+          </div>
+
+          <div class="emi-top-grid">
+            <!-- FOIR Gauge -->
+            <div class="card" style="text-align:center;">
+              <div class="field-label" style="justify-content:center;">FOIR • Fixed Obligations to Income</div>
+              <svg viewBox="0 0 240 130" style="width:230px; max-width:100%; margin:4px auto;">
+                <path d="M 35 115 A 85 85 0 0 1 81.4 39.3" fill="none" stroke="#108952" stroke-width="15" />
+                <path d="M 81.4 39.3 A 85 85 0 0 1 106.7 31.0" fill="none" stroke="#eab308" stroke-width="15" />
+                <path d="M 106.7 31.0 A 85 85 0 0 1 133.3 31.0" fill="none" stroke="#f97316" stroke-width="15" />
+                <path d="M 133.3 31.0 A 85 85 0 0 1 205 115" fill="none" stroke="#ef4444" stroke-width="15" />
+                <text x="26" y="128" font-size="9" fill="#64748b" text-anchor="middle">0%</text>
+                <text x="76" y="25" font-size="9" fill="#475569" text-anchor="middle" font-weight="bold">35%</text>
+                <text x="108" y="18" font-size="9" fill="#475569" text-anchor="middle" font-weight="bold">45%</text>
+                <text x="138" y="21" font-size="9" fill="#475569" text-anchor="middle" font-weight="bold">55%</text>
+                <text x="208" y="128" font-size="9" fill="#64748b" text-anchor="middle">70%+</text>
+                <g id="foir-needle" transform="rotate(-35 120 115)">
+                  <line x1="120" y1="115" x2="120" y2="42" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+                  <circle cx="120" cy="115" r="6" fill="#0f172a" />
+                </g>
+              </svg>
+              <div id="foir-pct-val" style="font-size:1.9rem; font-weight:800;">30.5%</div>
+              <div id="foir-math-str" class="helper-text">(₹5,000 + ₹19,360) ÷ ₹80,000</div>
+            </div>
+
+            <!-- Verdict Card -->
+            <div id="verdict-card" class="verdict-box">
+              <div>
+                <div class="field-label">Affordability Result</div>
+                <div id="verdict-label" style="font-size:1.65rem; font-weight:800; margin:4px 0 8px;">Good</div>
+                <p id="verdict-msg" style="margin:0; font-size:0.88rem; color:var(--text-secondary);"></p>
+              </div>
+              <div id="verdict-tags" style="display:flex; gap:6px; flex-wrap:wrap; margin-top:14px;"></div>
+            </div>
+          </div>
+
+          <!-- Monthly Breakdown Bar -->
+          <div class="card" style="margin-bottom:18px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong id="breakdown-title" style="font-size:0.95rem;">Where your ₹80,000 goes each month</strong>
+              <span id="overspend-tag" class="tag" style="display:none; background:#fee2e2; color:#b91c1c;">Exceeds Income</span>
+            </div>
+
+            <div class="stacked-bar">
+              <div id="seg-exp" style="background:#38bdf8; width:37.5%;"></div>
+              <div id="seg-ex" style="background:#a855f7; width:6.2%;"></div>
+              <div id="seg-prop" style="background:#fbbf24; width:24.2%;"></div>
+              <div id="seg-left" style="background:#108952; width:32.1%;"></div>
+            </div>
+
+            <div class="legend-grid">
+              <div class="legend-item">
+                <span><span class="dot" style="background:#38bdf8;"></span>Living expenses</span>
+                <strong id="leg-exp">₹30,000 (37.5%)</strong>
+              </div>
+              <div class="legend-item">
+                <span><span class="dot" style="background:#a855f7;"></span>Existing EMIs</span>
+                <strong id="leg-ex">₹5,000 (6.3%)</strong>
+              </div>
+              <div class="legend-item">
+                <span><span class="dot" style="background:#fbbf24;"></span>Proposed EMI</span>
+                <strong id="leg-prop">₹19,360 (24.2%)</strong>
+              </div>
+              <div class="legend-item">
+                <span><span class="dot" style="background:#108952;"></span>Left over (Disposable)</span>
+                <strong id="leg-left">₹25,640 (32.1%)</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Three Calculation Cards -->
+          <div class="grid-3" style="margin-bottom:14px;">
+            <div class="card">
+              <div class="field-label">Proposed EMI</div>
+              <div id="res-emi" style="font-size:1.35rem; font-weight:800;">₹19,360</div>
+              <div id="res-emi-note" class="helper-text">P·r·(1+r)^n ÷ ((1+r)^n − 1)</div>
+            </div>
+            <div class="card">
+              <div class="field-label" id="res-int-lbl">Total Interest</div>
+              <div id="res-interest" style="font-size:1.35rem; font-weight:800;">₹96,971</div>
+              <div id="res-int-note" class="helper-text">₹6,96,971 repaid − ₹6,00,000 borrowed</div>
+            </div>
+            <div class="card">
+              <div class="field-label">Disposable Income</div>
+              <div id="res-disp" style="font-size:1.35rem; font-weight:800;">₹25,640</div>
+              <div id="res-disp-note" class="helper-text">₹80,000 − ₹30,000 − ₹5,000 − ₹19,360</div>
+            </div>
+          </div>
+
+          <div class="card" style="background:#f8fafc; padding:13px 16px; font-size:0.84rem;" id="cibil-caveat"></div>
+
+          <div class="disclaimer-box">
+            This is an automated estimate based on self-reported figures. It is not financial advice or a lending decision. Actual eligibility, interest rates and terms are set by lenders.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SCREEN 6: ABOUT & METHODOLOGY
+         =================================================================== -->
+    <section id="page-about" class="page-section">
+      <div class="section-header">
+        <h1>About FinLens &amp; Methodology</h1>
+        <p>Transparent formulas, verdict thresholds, and prototype boundaries.</p>
+      </div>
+
+      <div class="card" style="margin-bottom:18px;">
+        <h3 style="margin-top:0;">1. Platform Scope</h3>
+        <p style="font-size:0.9rem; color:var(--text-secondary);">
+          FinLens is an informational financial product discovery and EMI estimation platform built on published Indian bank and lender schedules. It helps users compare debit &amp; credit cards, estimate loan EMIs across 9 financial goals, and check monthly repayment affordability. It does not connect to bank accounts, pull credit bureaus, or approve loans.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom:18px;">
+        <h3 style="margin-top:0;">2. Exact Formulas Used</h3>
+        <ul style="font-size:0.88rem; color:var(--text-secondary); line-height:1.8;">
+          <li><strong>Reducing-Balance EMI:</strong> <code>EMI = P × r × (1 + r)^n ÷ ((1 + r)^n − 1)</code> where <code>r = Annual Rate ÷ 12 ÷ 100</code>. If <code>r = 0</code>, <code>EMI = P ÷ n</code>.</li>
+          <li><strong>FOIR (%):</strong> <code>(Existing EMIs + Proposed EMI) ÷ Monthly Take-Home Income × 100</code>.</li>
+          <li><strong>Disposable Income:</strong> <code>Monthly Income − Living Expenses − Existing EMIs − Proposed EMI</code>.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0;">3. Affordability Verdict Thresholds</h3>
+        <p class="helper-text" style="margin-bottom:12px;">The verdict reflects the more cautious of FOIR and remaining disposable income %. CIBIL score adds an eligibility caveat only and never softens an unaffordable result.</p>
+        <div class="compare-table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Verdict</th>
+                <th>FOIR Range</th>
+                <th>Disposable Income Left</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong style="color:var(--green-primary);">Good</strong></td>
+                <td>≤ 35%</td>
+                <td>≥ 20% of income</td>
+              </tr>
+              <tr>
+                <td><strong style="color:#b45309;">Manageable</strong></td>
+                <td>&gt; 35% to 45%</td>
+                <td>10% to &lt; 20%</td>
+              </tr>
+              <tr>
+                <td><strong style="color:#c2410c;">Risky</strong></td>
+                <td>&gt; 45% to 55%</td>
+                <td>5% to &lt; 10%</td>
+              </tr>
+              <tr>
+                <td><strong style="color:#dc2626;">Not Recommended</strong></td>
+                <td>&gt; 55%</td>
+                <td>&lt; 5%, zero, or negative</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Card Details Modal -->
+  <div id="card-modal" class="modal-backdrop" onclick="if(event.target===this) closeCardModal()">
+    <div class="modal-card">
+      <div id="modal-header" class="bg-blue" style="padding:20px; color:#fff; display:flex; justify-content:space-between; align-items:flex-start;">
+        <div>
+          <span id="modal-tier" class="tag" style="background:rgba(255,255,255,0.2); color:#fff;">TIER</span>
+          <h2 id="modal-title" style="margin:6px 0 2px; font-size:1.3rem;">Card Name</h2>
+          <div id="modal-bank" style="font-size:0.82rem; opacity:0.85;">Bank</div>
+        </div>
+        <button onclick="closeCardModal()" style="background:rgba(255,255,255,0.2); border:none; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-weight:700;">✕</button>
+      </div>
+      <div style="padding:20px;">
+        <div id="modal-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;"></div>
+        <div id="modal-notes" style="background:var(--bg-page); padding:12px; border-radius:10px; font-size:0.84rem; color:var(--text-secondary);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loan Offer Compare Modal -->
+  <div id="offer-modal" class="modal-backdrop" onclick="if(event.target===this) closeOfferCompare()">
+    <div class="modal-card" style="max-width:760px;">
+      <div style="padding:16px 20px; border-bottom:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center;">
+        <strong>Compare Loan Offers</strong>
+        <button onclick="closeOfferCompare()" style="background:var(--bg-subtle); border:none; width:30px; height:30px; border-radius:50%; cursor:pointer; font-weight:700;">✕</button>
+      </div>
+      <div style="padding:20px; overflow-x:auto;">
+        <table id="offer-compare-table" class="compare-table" style="min-width:520px;"></table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =====================================================================
+       1. CARD & LENDER CATALOG DATA
+       ===================================================================== */
+    let CARDS_CATALOG = [
+      { id: "d-sbi-global", type: "debit", bank: "State Bank of India", name: "SBI Global International Debit Card", tier: "Basic", network: "Visa / Mastercard / RuPay", annualFee: 125, feeLabel: "₹125 + GST", minBalance: null, atmLimit: 40000, posLimit: 200000, rewards: 0.25, rates: { online: 0.0025, dining: 0.0025, utility: 0.0025, travel: 0.0025, offline: 0.0025 }, lounge: "No", hasLounge: false, forex: "3.5% + ₹100 (intl ATM)", insurance: null, hasInsurance: false, popular: 94, beginner: 95, color: "bg-blue", summary: "Low-fee international debit card with ₹40,000 daily ATM limit, ₹2,00,000 POS/e-commerce limit, and 2 SBI Rewardz points per ₹200 spent." },
+      { id: "d-idfc-classic", type: "debit", bank: "IDFC FIRST Bank", name: "IDFC FIRST Classic Debit Card", tier: "Basic", network: "Visa", annualFee: 0, feeLabel: "₹0 (on ₹10k AMB Savings)", minBalance: 10000, atmLimit: 100000, posLimit: 400000, rewards: 0.5, rates: { online: 0.005, dining: 0.005, utility: 0.005, travel: 0.005, offline: 0.005 }, lounge: "No", hasLounge: false, forex: "3.5%", insurance: "₹2 L personal / ₹30 L air accident", hasInsurance: true, popular: 90, beginner: 94, color: "bg-emerald", summary: "Zero annual fee debit card on ₹10,000 AMB savings accounts with ₹1,00,000 daily ATM limit, ₹4,00,000 POS limit, and free unlimited ATM withdrawals." },
+      { id: "d-kotak-811", type: "debit", bank: "Kotak Mahindra Bank", name: "Kotak 811 Classic Debit Card", tier: "Basic", network: "Visa / RuPay", annualFee: 299, feeLabel: "₹299 + GST", minBalance: 0, atmLimit: 25000, posLimit: 100000, rewards: 0.25, rates: { online: 0.0025, dining: 0.0025, utility: 0.0025, travel: 0.0025, offline: 0.0025 }, lounge: "No", hasLounge: false, forex: "3.5%", insurance: "₹2 L lost card cover", hasInsurance: true, popular: 91, beginner: 96, color: "bg-blue", summary: "Zero-balance digital savings account debit card with instant virtual card activation, contactless tap & pay, and ₹1,00,000 daily purchase limit." },
+      { id: "d-pnb-rupay-classic", type: "debit", bank: "Punjab National Bank", name: "PNB RuPay Classic Debit Card", tier: "Basic", network: "RuPay", annualFee: 150, feeLabel: "₹150 + GST", minBalance: 2000, atmLimit: 25000, posLimit: 60000, rewards: 0.0, rates: { online: 0.0, dining: 0.0, utility: 0.0, travel: 0.0, offline: 0.0 }, lounge: "No", hasLounge: false, forex: null, insurance: "₹1 L accidental cover (RuPay)", hasInsurance: true, popular: 85, beginner: 93, color: "bg-slate", summary: "Simple domestic RuPay debit card for everyday ATM cash and UPI-linked banking with ₹25,000 daily ATM limit and RuPay insurance cover." },
+      { id: "d-axis-liberty", type: "debit", bank: "Axis Bank", name: "Axis Liberty Debit Card", tier: "Standard", network: "Visa", annualFee: 300, feeLabel: "₹300 + GST (₹0 on Salary)", minBalance: 25000, atmLimit: 50000, posLimit: 300000, rewards: 1.5, rates: { online: 0.015, dining: 0.025, utility: 0.005, travel: 0.025, offline: 0.015 }, lounge: "1 / quarter (domestic)", hasLounge: true, forex: "3.5%", insurance: "₹5 L personal / ₹1 Cr air accident", hasInsurance: true, popular: 89, beginner: 84, color: "bg-purple", summary: "5% weekend cashback on food, entertainment, shopping & travel (capped at ₹500/mo), 1 domestic lounge visit/quarter, and ₹3 L daily purchase limit." },
+      { id: "d-sbi-platinum", type: "debit", bank: "State Bank of India", name: "SBI Platinum International Debit Card", tier: "Standard", network: "Visa / Mastercard", annualFee: 300, feeLabel: "₹300 + GST", minBalance: null, atmLimit: 100000, posLimit: 200000, rewards: 0.5, rates: { online: 0.005, dining: 0.005, utility: 0.005, travel: 0.005, offline: 0.005 }, lounge: "2 / quarter (domestic)", hasLounge: true, forex: "3.5%", insurance: "₹5 L personal / ₹10 L air accident", hasInsurance: true, popular: 88, beginner: 82, color: "bg-blue", summary: "Higher ₹1,00,000 daily ATM withdrawal limit, complimentary domestic airport lounge access, and SBI Rewardz points across dining and travel." },
+      { id: "d-hdfc-easyshop-plat", type: "debit", bank: "HDFC Bank", name: "HDFC EasyShop Platinum Debit Card", tier: "Standard", network: "Visa / Mastercard", annualFee: 850, feeLabel: "₹850 + GST", minBalance: 25000, atmLimit: 100000, posLimit: 500000, rewards: 1.0, rates: { online: 0.01, dining: 0.01, utility: 0.01, travel: 0.01, offline: 0.005 }, lounge: "2 / quarter (on ₹5k prior spend)", hasLounge: true, forex: "3.5%", insurance: "₹10 L personal / ₹1 Cr air accident", hasInsurance: true, popular: 92, beginner: 80, color: "bg-slate", summary: "High ₹5,00,000 daily merchant/online spend limit, ₹1,00,000 ATM limit, 1 CashBack point per ₹100 on telecom/utilities/groceries, and domestic lounge access." },
+      { id: "d-hdfc-millennia", type: "debit", bank: "HDFC Bank", name: "HDFC Millennia Debit Card", tier: "Premium", network: "Mastercard / Visa / RuPay", annualFee: 500, feeLabel: "₹500 + GST (₹0 on Salary)", minBalance: null, atmLimit: 50000, posLimit: 350000, rewards: 2.5, rates: { online: 0.025, dining: 0.01, utility: 0.01, travel: 0.025, offline: 0.01 }, lounge: "1 / quarter (4 / year domestic)", hasLounge: true, forex: "3.5%", insurance: "₹10 L personal / ₹1 Cr air accident", hasInsurance: true, popular: 96, beginner: 82, color: "bg-emerald", summary: "5% CashBack points on PayZapp/SmartBuy, 2.5% on online spends, 1% on offline/wallet reloads (up to ₹400/mo), plus 4 domestic lounge visits/year." },
+      { id: "d-axis-prestige", type: "debit", bank: "Axis Bank", name: "Axis Prestige Debit Card", tier: "Premium", network: "Visa", annualFee: 500, feeLabel: "₹500 + GST", minBalance: 75000, atmLimit: 100000, posLimit: 500000, rewards: 1.5, rates: { online: 0.015, dining: 0.02, utility: 0.005, travel: 0.02, offline: 0.01 }, lounge: "1 / quarter (domestic)", hasLounge: true, forex: "3.5%", insurance: "₹5 L personal / ₹1 Cr air accident", hasInsurance: true, popular: 86, beginner: 75, color: "bg-purple", summary: "₹5,00,000 daily purchase limit, ₹1,00,000 ATM withdrawal limit, fuel surcharge waiver, BookMyShow movie benefits, and domestic lounge access." },
+      { id: "d-icici-coral", type: "debit", bank: "ICICI Bank", name: "ICICI Coral Debit Card", tier: "Platinum", network: "Visa / Mastercard", annualFee: 749, feeLabel: "₹749 + GST", minBalance: null, atmLimit: null, posLimit: 500000, rewards: 1.0, rates: { online: 0.01, dining: 0.01, utility: 0.005, travel: 0.01, offline: 0.01 }, lounge: "2 / quarter (on ₹10k prior spend)", hasLounge: true, forex: null, insurance: null, hasInsurance: false, popular: 87, beginner: 74, color: "bg-amber", summary: "Up to 2 complimentary domestic airport lounge visits per quarter (requires ₹10,000 spend in previous quarter), BookMyShow offers, and ₹5 L daily shopping limit." },
+      { id: "d-icici-sapphiro", type: "debit", bank: "ICICI Bank", name: "ICICI Sapphiro Debit Card", tier: "Platinum", network: "Visa / Mastercard", annualFee: 1999, feeLabel: "₹1,999 + GST", minBalance: 200000, atmLimit: 250000, posLimit: 750000, rewards: 1.5, rates: { online: 0.015, dining: 0.02, utility: 0.005, travel: 0.02, offline: 0.015 }, lounge: "4 / quarter (domestic)", hasLounge: true, forex: "3.5%", insurance: "₹15 L personal / ₹3 Cr air accident", hasInsurance: true, popular: 84, beginner: 60, color: "bg-slate", summary: "High-limit wealth debit card with ₹2.5 L daily ATM limit, ₹7.5 L POS limit, 4 domestic lounge visits/quarter, and Buy 1 Get 1 BookMyShow offers." },
+      { id: "d-axis-burgundy", type: "debit", bank: "Axis Bank", name: "Axis Burgundy Debit Card", tier: "Platinum", network: "Visa / Mastercard", annualFee: 0, feeLabel: "₹0 (for Burgundy Account)", minBalance: 1000000, atmLimit: 300000, posLimit: 600000, rewards: 2.0, rates: { online: 0.02, dining: 0.025, utility: 0.01, travel: 0.025, offline: 0.02 }, lounge: "3 / quarter (domestic)", hasLounge: true, forex: "3.5%", insurance: "₹15 L personal / ₹1 Cr air accident", hasInsurance: true, popular: 83, beginner: 48, color: "bg-amber", summary: "Flagship wealth debit card with ₹3 L daily ATM limit, ₹6 L POS limit, zero cross-currency fee on select ATM withdrawals, and 3 domestic lounge visits/quarter." },
+      { id: "c-icici-amazon", type: "credit", bank: "ICICI Bank", name: "Amazon Pay ICICI Credit Card", tier: "Basic", network: "Visa", annualFee: 0, feeLabel: "₹0 (Lifetime Free)", waiverSpend: 0, hasWaiver: true, creditLimit: null, rewards: 5.0, rates: { online: 0.05, dining: 0.01, utility: 0.02, travel: 0.05, offline: 0.01 }, lounge: "No", hasLounge: false, forex: "1.99%", graceDays: null, aprMonthly: 3.75, insurance: null, hasInsurance: false, popular: 98, beginner: 97, color: "bg-emerald", summary: "Lifetime-free card with 5% back on Amazon for Prime members (3% non-Prime), 2% on Amazon Pay partner merchants & bill payments, 1% elsewhere, and low 1.99% forex markup." },
+      { id: "c-idfc-millennia", type: "credit", bank: "IDFC FIRST Bank", name: "IDFC FIRST Millennia Credit Card", tier: "Basic", network: "Visa / Mastercard", annualFee: 0, feeLabel: "₹0 (Lifetime Free)", waiverSpend: 0, hasWaiver: true, creditLimit: null, rewards: 2.5, rates: { online: 0.025, dining: 0.015, utility: 0.005, travel: 0.015, offline: 0.015 }, lounge: "4 / quarter (railway only)", hasLounge: false, forex: "3.5%", graceDays: 48, aprMonthly: 3.5, insurance: "₹2 L personal accident", hasInsurance: true, popular: 92, beginner: 95, color: "bg-blue", summary: "Lifetime-free starter credit card with never-expiring reward points (up to 10X on incremental spends), railway lounge access, and interest-free ATM cash withdrawal up to 48 days." },
+      { id: "c-hdfc-tata-neu-plus", type: "credit", bank: "HDFC Bank", name: "Tata Neu Plus HDFC Credit Card", tier: "Basic", network: "RuPay / Visa", annualFee: 499, feeLabel: "₹499 + GST", waiverSpend: 100000, hasWaiver: true, creditLimit: null, rewards: 2.0, rates: { online: 0.02, dining: 0.01, utility: 0.02, travel: 0.02, offline: 0.01 }, lounge: "4 / year (domestic)", hasLounge: true, forex: "3.5%", graceDays: 50, aprMonthly: 3.6, insurance: null, hasInsurance: false, popular: 90, beginner: 91, color: "bg-purple", summary: "RuPay UPI-enabled credit card earning 2% NeuCoins on Tata Neu brands & bills and 1% on UPI spends (capped), plus 4 domestic lounge visits/year." },
+      { id: "c-axis-ace", type: "credit", bank: "Axis Bank", name: "Axis Bank ACE Credit Card", tier: "Standard", network: "Visa", annualFee: 499, feeLabel: "₹499 + GST", waiverSpend: 200000, hasWaiver: true, creditLimit: null, rewards: 5.0, rates: { online: 0.015, dining: 0.04, utility: 0.05, travel: 0.015, offline: 0.015 }, lounge: "4 / year (on ₹50k spend in 3 mos)", hasLounge: true, forex: null, graceDays: null, aprMonthly: 3.75, insurance: null, hasInsurance: false, popular: 93, beginner: 88, color: "bg-blue", summary: "5% cashback on utility bills/recharges via Google Pay, 4% on Swiggy, Zomato & Ola (combined ₹500/mo cap), 1.5% uncapped base cashback; fee waived at ₹2 L annual spend." },
+      { id: "c-axis-flipkart", type: "credit", bank: "Axis Bank", name: "Flipkart Axis Bank Credit Card", tier: "Standard", network: "Visa / Mastercard", annualFee: 500, feeLabel: "₹500 + GST", waiverSpend: 350000, hasWaiver: true, creditLimit: null, rewards: 5.0, rates: { online: 0.05, dining: 0.04, utility: 0.01, travel: 0.04, offline: 0.01 }, lounge: "4 / year (on ₹50k prior spend)", hasLounge: true, forex: "3.5%", graceDays: 50, aprMonthly: 3.6, insurance: null, hasInsurance: false, popular: 94, beginner: 89, color: "bg-emerald", summary: "5% cashback on Flipkart & Cleartrip, 4% on preferred partners (Swiggy, PVR, Uber), and 1% base cashback with direct statement credit." },
+      { id: "c-icici-coral-rupay", type: "credit", bank: "ICICI Bank", name: "ICICI Coral RuPay Credit Card", tier: "Standard", network: "RuPay", annualFee: 500, feeLabel: "₹500 + GST", waiverSpend: 150000, hasWaiver: true, creditLimit: null, rewards: 1.0, rates: { online: 0.01, dining: 0.01, utility: 0.005, travel: 0.01, offline: 0.01 }, lounge: "1 / quarter (domestic + railway)", hasLounge: true, forex: "3.5%", graceDays: 48, aprMonthly: 3.75, insurance: null, hasInsurance: false, popular: 89, beginner: 87, color: "bg-slate", summary: "RuPay UPI Scan & Pay credit card with BookMyShow 25% movie discounts, 1 domestic airport & 1 railway lounge visit per quarter, and ₹1.5 L fee waiver." },
+      { id: "c-sbi-simplyclick", type: "credit", bank: "SBI Card", name: "SimplyCLICK SBI Card", tier: "Standard", network: "Visa", annualFee: 499, feeLabel: "₹499 + GST", waiverSpend: 100000, hasWaiver: true, creditLimit: null, rewards: 2.5, rates: { online: 0.025, dining: 0.0125, utility: 0.0025, travel: 0.025, offline: 0.0025 }, lounge: "No", hasLounge: false, forex: "3.5%", graceDays: 50, aprMonthly: 3.5, insurance: null, hasInsurance: false, popular: 92, beginner: 90, color: "bg-blue", summary: "Entry-level online shopping card earning 10X Reward Points on partner brands (Apollo 24x7, BookMyShow, Cleartrip, Myntra, Swiggy) and 5X on other online spends." },
+      { id: "c-sbi-cashback", type: "credit", bank: "SBI Card", name: "Cashback SBI Card", tier: "Premium", network: "Visa / Mastercard", annualFee: 999, feeLabel: "₹999 + GST", waiverSpend: 200000, hasWaiver: true, creditLimit: null, rewards: 5.0, rates: { online: 0.05, dining: 0.01, utility: 0.0, travel: 0.05, offline: 0.01 }, lounge: "No", hasLounge: false, forex: null, graceDays: null, aprMonthly: 3.75, insurance: null, hasInsurance: false, popular: 97, beginner: 86, color: "bg-purple", summary: "5% direct statement cashback across online spends without merchant restrictions (up to ₹5,000/mo), 1% on offline spends; ₹999 renewal fee reversed on ₹2 L annual spend." },
+      { id: "c-hdfc-millennia", type: "credit", bank: "HDFC Bank", name: "HDFC Millennia Credit Card", tier: "Premium", network: "Mastercard / Visa", annualFee: 1000, feeLabel: "₹1,000 + GST", waiverSpend: 100000, hasWaiver: true, creditLimit: null, rewards: 5.0, rates: { online: 0.025, dining: 0.05, utility: 0.01, travel: 0.01, offline: 0.01 }, lounge: "8 / year (2 / quarter domestic)", hasLounge: true, forex: "3.5%", graceDays: null, aprMonthly: 3.60, insurance: null, hasInsurance: false, popular: 95, beginner: 85, color: "bg-slate", summary: "5% cashback on Amazon, Flipkart, Swiggy, Zomato, BookMyShow & Uber, 2.5% on other online spends, 1% offline; renewal fee waived at ₹1 L annual spend." },
+      { id: "c-hdfc-regalia-gold", type: "credit", bank: "HDFC Bank", name: "HDFC Regalia Gold Credit Card", tier: "Premium", network: "Visa / Mastercard", annualFee: 2500, feeLabel: "₹2,500 + GST", waiverSpend: 400000, hasWaiver: true, creditLimit: null, rewards: 2.66, rates: { online: 0.0266, dining: 0.0266, utility: 0.0133, travel: 0.066, offline: 0.0133 }, lounge: "12 domestic + 6 intl / year", hasLounge: true, forex: "2.0%", graceDays: 50, aprMonthly: 3.6, insurance: "₹1 Cr air accident / ₹15 L medical", hasInsurance: true, popular: 93, beginner: 68, color: "bg-emerald", summary: "Low 2% forex markup, 12 domestic + 6 Priority Pass international lounge visits/year, 5X points at Marks & Spencer, Myntra, Nykaa & Reliance Digital." },
+      { id: "c-axis-atlas", type: "credit", bank: "Axis Bank", name: "Axis Bank Atlas Credit Card", tier: "Platinum", network: "Visa", annualFee: 5000, feeLabel: "₹5,000 + GST", waiverSpend: null, hasWaiver: false, creditLimit: null, rewards: 4.0, rates: { online: 0.04, dining: 0.04, utility: 0.0, travel: 0.10, offline: 0.04 }, lounge: "Up to 18 dom + 12 intl / year", hasLounge: true, forex: "3.5%", graceDays: 50, aprMonthly: 3.6, insurance: null, hasInsurance: false, popular: 90, beginner: 52, color: "bg-purple", summary: "Dedicated travel miles card earning 5 EDGE Miles per ₹100 on direct airlines/hotels (1:2 transfer to partner airlines & hotels) and tiered domestic + international lounges." },
+      { id: "c-hdfc-infinia", type: "credit", bank: "HDFC Bank", name: "HDFC Infinia Metal Credit Card", tier: "Platinum", network: "Visa / Mastercard", annualFee: 12500, feeLabel: "₹12,500 + GST", waiverSpend: 1000000, hasWaiver: true, creditLimit: null, rewards: 3.3, rates: { online: 0.033, dining: 0.033, utility: 0.033, travel: 0.165, offline: 0.033 }, lounge: "Unlimited global (Priority Pass)", hasLounge: true, forex: "2.0%", graceDays: null, aprMonthly: 1.99, insurance: "₹3 Cr air accident cover", hasInsurance: true, popular: 91, beginner: 45, color: "bg-amber", summary: "3.3% base reward rate (5 Reward Points per ₹150, 1 RP = ₹1 on SmartBuy travel), unlimited global airport lounge access, and renewal fee waiver on ₹10 L annual spend." }
+    ];
+
+    const GOALS = [
+      { id: "car", label: "Car / Vehicle", category: "Auto Loan", minAmt: 100000, maxAmt: 15000000, defAmt: 600000, minTen: 12, maxTen: 84, defTen: 36, note: "" },
+      { id: "home", label: "Home / Property", category: "Home Loan", minAmt: 500000, maxAmt: 100000000, defAmt: 3500000, minTen: 12, maxTen: 360, defTen: 180, note: "" },
+      { id: "education", label: "Education", category: "Education Loan", minAmt: 50000, maxAmt: 10000000, defAmt: 800000, minTen: 12, maxTen: 180, defTen: 60, note: "" },
+      { id: "personal", label: "Personal / Wedding", category: "Personal Loan", minAmt: 10000, maxAmt: 4000000, defAmt: 300000, minTen: 6, maxTen: 60, defTen: 24, note: "" },
+      { id: "medical", label: "Medical / Emergency", category: "Personal Loan", minAmt: 10000, maxAmt: 4000000, defAmt: 200000, minTen: 6, maxTen: 60, defTen: 24, note: "Mapped to Personal Loan category." },
+      { id: "business", label: "Business", category: "Business Loan", minAmt: 50000, maxAmt: 5000000, defAmt: 1000000, minTen: 12, maxTen: 120, defTen: 48, note: "" },
+      { id: "durable", label: "Consumer Durable", category: "Consumer Durable Loan", minAmt: 5000, maxAmt: 500000, defAmt: 75000, minTen: 3, maxTen: 36, defTen: 12, note: "" },
+      { id: "debt", label: "Debt Consolidation", category: "Personal Loan", minAmt: 10000, maxAmt: 4000000, defAmt: 400000, minTen: 6, maxTen: 60, defTen: 36, note: "Prototype mapping to Personal Loan." },
+      { id: "other", label: "Other", category: "Personal Loan", minAmt: 10000, maxAmt: 4000000, defAmt: 150000, minTen: 6, maxTen: 60, defTen: 24, note: "Prototype mapping to Personal Loan." }
+    ];
+
+    const CIBIL_OPTIONS = [
+      { id: "Below 650", label: "Below 650", pos: 1.0, floor: 600 },
+      { id: "650-699", label: "650–699", pos: 0.75, floor: 650 },
+      { id: "700-749", label: "700–749", pos: 0.50, floor: 700 },
+      { id: "750-799", label: "750–799", pos: 0.25, floor: 750 },
+      { id: "800+", label: "800+", pos: 0.0, floor: 800 },
+      { id: "Not sure", label: "Not sure", pos: null, floor: null }
+    ];
+
+    let LOAN_OFFERS = [
+      { id: "o-sbi-auto", category: "Auto Loan", lender: "State Bank of India (SBI Car Loan)", rateMin: 8.85, rateMax: 9.80, minCibil: 700, feePct: 0.5, prepayPct: 0.0, days: 3, popular: 96 },
+      { id: "o-hdfc-auto", category: "Auto Loan", lender: "HDFC Bank (Xpress Auto Loan)", rateMin: 9.20, rateMax: 11.25, minCibil: 700, feePct: 0.5, prepayPct: 2.0, days: 2, popular: 94 },
+      { id: "o-icici-auto", category: "Auto Loan", lender: "ICICI Bank (Car Loan)", rateMin: 9.10, rateMax: 11.40, minCibil: 700, feePct: 0.5, prepayPct: 2.0, days: 2, popular: 91 },
+      { id: "o-axis-auto", category: "Auto Loan", lender: "Axis Bank (New Car Loan)", rateMin: 9.30, rateMax: 11.75, minCibil: 675, feePct: 0.5, prepayPct: 2.0, days: 3, popular: 87 },
+      { id: "o-sbi-home", category: "Home Loan", lender: "State Bank of India (SBI Home Loan)", rateMin: 8.50, rateMax: 9.65, minCibil: 700, feePct: 0.35, prepayPct: 0.0, days: 7, popular: 97 },
+      { id: "o-hdfc-home", category: "Home Loan", lender: "HDFC Bank (Home Loan)", rateMin: 8.70, rateMax: 9.85, minCibil: 725, feePct: 0.5, prepayPct: 0.0, days: 6, popular: 95 },
+      { id: "o-icici-home", category: "Home Loan", lender: "ICICI Bank (Home Loan)", rateMin: 8.75, rateMax: 9.90, minCibil: 700, feePct: 0.5, prepayPct: 0.0, days: 6, popular: 92 },
+      { id: "o-lic-home", category: "Home Loan", lender: "LIC Housing Finance (Home Loan)", rateMin: 8.50, rateMax: 10.25, minCibil: 675, feePct: 0.5, prepayPct: 0.0, days: 8, popular: 88 },
+      { id: "o-sbi-edu", category: "Education Loan", lender: "State Bank of India (SBI Student Loan)", rateMin: 8.65, rateMax: 11.15, minCibil: 700, feePct: 0.0, prepayPct: 0.0, days: 5, popular: 96 },
+      { id: "o-bob-edu", category: "Education Loan", lender: "Bank of Baroda (Baroda Vidya / Scholar)", rateMin: 8.85, rateMax: 10.95, minCibil: 675, feePct: 0.0, prepayPct: 0.0, days: 5, popular: 92 },
+      { id: "o-credila-edu", category: "Education Loan", lender: "HDFC Credila (Education Loan)", rateMin: 9.75, rateMax: 12.75, minCibil: 675, feePct: 1.0, prepayPct: 0.0, days: 3, popular: 89 },
+      { id: "o-hdfc-personal", category: "Personal Loan", lender: "HDFC Bank (Personal Loan)", rateMin: 10.75, rateMax: 16.00, minCibil: 725, feePct: 1.5, prepayPct: 2.0, days: 1, popular: 95 },
+      { id: "o-icici-personal", category: "Personal Loan", lender: "ICICI Bank (Instant Personal Loan)", rateMin: 10.85, rateMax: 16.50, minCibil: 725, feePct: 1.5, prepayPct: 2.0, days: 1, popular: 93 },
+      { id: "o-sbi-personal", category: "Personal Loan", lender: "State Bank of India (SBI Xpress Credit)", rateMin: 11.15, rateMax: 14.30, minCibil: 700, feePct: 1.0, prepayPct: 0.0, days: 3, popular: 91 },
+      { id: "o-kotak-personal", category: "Personal Loan", lender: "Kotak Mahindra Bank (Personal Loan)", rateMin: 10.99, rateMax: 16.99, minCibil: 700, feePct: 1.5, prepayPct: 2.0, days: 2, popular: 88 },
+      { id: "o-hdfc-business", category: "Business Loan", lender: "HDFC Bank (Business Growth Loan)", rateMin: 10.75, rateMax: 16.50, minCibil: 725, feePct: 1.5, prepayPct: 2.0, days: 4, popular: 93 },
+      { id: "o-icici-business", category: "Business Loan", lender: "ICICI Bank (Business Loan)", rateMin: 11.25, rateMax: 17.00, minCibil: 700, feePct: 1.5, prepayPct: 2.0, days: 3, popular: 90 },
+      { id: "o-bajaj-business", category: "Business Loan", lender: "Bajaj Finserv (Business Loan)", rateMin: 12.00, rateMax: 18.00, minCibil: 685, feePct: 2.0, prepayPct: 2.0, days: 2, popular: 87 },
+      { id: "o-bajaj-durable", category: "Consumer Durable Loan", lender: "Bajaj Finserv (EMI Network)", rateMin: 0.00, rateMax: 12.00, minCibil: 700, feePct: 1.0, prepayPct: 0.0, days: 1, popular: 96 },
+      { id: "o-hdfc-durable", category: "Consumer Durable Loan", lender: "HDFC Bank (Consumer Durable EasyEMI)", rateMin: 0.00, rateMax: 13.00, minCibil: 700, feePct: 1.0, prepayPct: 0.0, days: 1, popular: 92 },
+      { id: "o-idfc-durable", category: "Consumer Durable Loan", lender: "IDFC FIRST Bank (Consumer Durable Loan)", rateMin: 0.00, rateMax: 14.00, minCibil: 680, feePct: 1.0, prepayPct: 0.0, days: 1, popular: 89 }
+    ];
+
+    /* =====================================================================
+       2. APPLICATION STATE & HELPERS
+       ===================================================================== */
+    const PROFILE_KEY = "finlens_budget_profile";
+
+    const DEFAULT_SPEND = { offline: 3500, online: 5000, dining: 4000, travel: 3000, utility: 2500, rent: 12000 };
+
+    let appState = {
+      registered: false,
+      profile: {
+        name: "",
+        income: 80000,
+        expenses: 30000,
+        emis: 5000,
+        cibil: "750-799",
+        spend: { ...DEFAULT_SPEND }
+      },
+      cardType: "all",
+      showSuggestions: false,
+      selectedTiers: [],
+      selectedNetworks: [],
+      compareCardIds: [],
+      goalId: "car",
+      planAmount: 600000,
+      planTenure: 36,
+      planCibil: "750-799",
+      offerSort: "rate",
+      compareOfferIds: [],
+      emiMode: "loan",
+      emiCibil: "750-799"
+    };
+
+    function formatINR(value) {
+      if (isNaN(value)) return "₹0";
+      const rounded = Math.round(value);
+      return (rounded < 0 ? "-₹" : "₹") + Math.abs(rounded).toLocaleString("en-IN");
+    }
+
+    function calculateEMI(principal, annualRate, months) {
+      if (principal <= 0 || months <= 0) return 0;
+      if (annualRate <= 0) return principal / months;
+      const r = annualRate / 12 / 100;
+      const factor = Math.pow(1 + r, months);
+      return (principal * r * factor) / (factor - 1);
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById("toast");
+      el.textContent = msg;
+      el.style.display = "block";
+      clearTimeout(el._timer);
+      el._timer = setTimeout(() => { el.style.display = "none"; }, 2600);
+    }
+
+    /* =====================================================================
+       3. NAVIGATION & PROFILE PERSISTENCE
+       ===================================================================== */
+    function openCardCatalog(type = "all") {
+      setCardType(type);
+      showPage("cards");
+    }
+
+    function showPage(pageKey) {
+      const isRegister = pageKey === "register";
+      const isCardPage = pageKey === "cards" || pageKey === "debit" || pageKey === "credit";
+      const sectionId = isCardPage ? "page-cards" : "page-" + pageKey;
+
+      if (!isRegister) appState.registered = true;
+      const nav = document.getElementById("main-nav");
+      if (nav) nav.style.display = isRegister ? "none" : "flex";
+
+      document.querySelectorAll(".page-section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(sectionId).classList.add("active");
+
+      document.querySelectorAll(".nav-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.page === (isCardPage ? "cards" : pageKey));
+      });
+
+      if (isCardPage) {
+        closeCompareView();
+        renderCards();
+      } else if (pageKey === "plan") {
+        renderGoalPills();
+        renderPlanCibilPills();
+        renderOffers();
+      } else if (pageKey === "emi") {
+        renderEmiCibilPills();
+        runEmiCheck();
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function getCardSpendTotal(spend) {
+      const s = spend || DEFAULT_SPEND;
+      return (Number(s.offline) || 0) + (Number(s.online) || 0) + (Number(s.dining) || 0) + (Number(s.travel) || 0) + (Number(s.utility) || 0);
+    }
+
+    function getTotalExpensesFromSpend(spend) {
+      const s = spend || DEFAULT_SPEND;
+      return (Number(s.rent) || 0) + getCardSpendTotal(s);
+    }
+
+    function readStartPageProfileInputs() {
+      const spend = {
+        offline: Math.max(0, Number(document.getElementById("prof-in-offline").value) || 0),
+        online: Math.max(0, Number(document.getElementById("prof-in-online").value) || 0),
+        dining: Math.max(0, Number(document.getElementById("prof-in-dining").value) || 0),
+        travel: Math.max(0, Number(document.getElementById("prof-in-travel").value) || 0),
+        utility: Math.max(0, Number(document.getElementById("prof-in-utility").value) || 0),
+        rent: Math.max(0, Number(document.getElementById("prof-in-rent").value) || 0)
+      };
+      return {
+        name: (document.getElementById("prof-in-name").value || "").trim(),
+        income: Math.max(1000, Number(document.getElementById("prof-in-income").value) || 0),
+        expenses: getTotalExpensesFromSpend(spend),
+        emis: Math.max(0, Number(document.getElementById("prof-in-emis").value) || 0),
+        cibil: document.getElementById("prof-in-cibil").value,
+        spend
+      };
+    }
+
+    function updateProfileTotalsPreview() {
+      const draft = readStartPageProfileInputs();
+      const cardSpend = getCardSpendTotal(draft.spend);
+      const cashflow = draft.income - draft.expenses - draft.emis;
+      document.getElementById("prof-disp-expenses").textContent = formatINR(draft.expenses);
+      document.getElementById("prof-disp-card-spend").textContent = `${formatINR(cardSpend)}/mo`;
+      document.getElementById("prof-disp-annual-spend").textContent = formatINR(cardSpend * 12);
+      const cfEl = document.getElementById("prof-disp-cashflow");
+      cfEl.textContent = formatINR(cashflow);
+      cfEl.style.color = cashflow < 0 ? "#dc2626" : "var(--text-main)";
+      const badge = document.getElementById("prof-saved-badge");
+      if (badge) {
+        badge.textContent = "Unsaved changes";
+        badge.className = "tag tag-amber";
+      }
+    }
+
+    function loadProfile() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(PROFILE_KEY));
+        if (saved && saved.income > 0) {
+          const spend = saved.spend ? { ...DEFAULT_SPEND, ...saved.spend } : { ...DEFAULT_SPEND };
+          appState.profile = {
+            name: saved.name || "",
+            income: Number(saved.income) || 80000,
+            expenses: saved.spend ? getTotalExpensesFromSpend(spend) : (Number(saved.expenses) || 30000),
+            emis: Number(saved.emis) || 0,
+            cibil: saved.cibil || "750-799",
+            spend
+          };
+        }
+      } catch (err) {
+        // Ignore storage errors if blocked
+      }
+      appState.planCibil = appState.profile.cibil;
+      appState.emiCibil = appState.profile.cibil;
+      refreshProfileUI();
+    }
+
+    function refreshProfileUI() {
+      const p = appState.profile;
+      const s = p.spend || DEFAULT_SPEND;
+
+      document.getElementById("prof-in-name").value = p.name || "";
+      document.getElementById("prof-in-income").value = p.income;
+      document.getElementById("prof-in-emis").value = p.emis;
+      document.getElementById("prof-in-cibil").value = p.cibil;
+      document.getElementById("prof-in-offline").value = s.offline;
+      document.getElementById("prof-in-online").value = s.online;
+      document.getElementById("prof-in-dining").value = s.dining;
+      document.getElementById("prof-in-travel").value = s.travel;
+      document.getElementById("prof-in-utility").value = s.utility;
+      document.getElementById("prof-in-rent").value = s.rent;
+
+      const cardSpend = getCardSpendTotal(s);
+      const cashflow = p.income - p.expenses - p.emis;
+      document.getElementById("prof-disp-expenses").textContent = formatINR(p.expenses);
+      document.getElementById("prof-disp-card-spend").textContent = `${formatINR(cardSpend)}/mo`;
+      document.getElementById("prof-disp-annual-spend").textContent = formatINR(cardSpend * 12);
+      const cfEl = document.getElementById("prof-disp-cashflow");
+      cfEl.textContent = formatINR(cashflow);
+      cfEl.style.color = cashflow < 0 ? "#dc2626" : "var(--text-main)";
+
+      // Update Home summary card & welcome badge
+      const badgeWelcome = document.getElementById("home-welcome-badge");
+      if (badgeWelcome) {
+        badgeWelcome.textContent = p.name
+          ? `Welcome, ${p.name} • Information & estimation tool`
+          : "Information & estimation tool • not a lender";
+      }
+      document.getElementById("home-prof-income").textContent = formatINR(p.income);
+      document.getElementById("home-prof-expenses").textContent = formatINR(p.expenses);
+      document.getElementById("home-prof-card-spend").textContent = `${formatINR(cardSpend)}/mo`;
+      document.getElementById("home-prof-cibil").textContent = p.cibil;
+      const tagsEl = document.getElementById("home-prof-spend-tags");
+      if (tagsEl) {
+        tagsEl.innerHTML = [
+          ["Living/Offline", s.offline],
+          ["Online", s.online],
+          ["Dining", s.dining],
+          ["Travel", s.travel],
+          ["Utilities", s.utility],
+          ["Rent", s.rent]
+        ].filter(([, v]) => Number(v) > 0)
+         .map(([lbl, v]) => `<span class="tag">${lbl}: ${formatINR(v)}</span>`)
+         .join("");
+      }
+
+      const badge = document.getElementById("prof-saved-badge");
+      if (badge) {
+        badge.textContent = "Saved";
+        badge.className = "tag tag-green";
+      }
+
+      document.getElementById("emi-income").value = p.income;
+      document.getElementById("emi-expenses").value = p.expenses;
+      document.getElementById("emi-existing").value = p.emis;
+    }
+
+    function persistProfile(nextProfile) {
+      appState.profile = nextProfile;
+      try {
+        localStorage.setItem(PROFILE_KEY, JSON.stringify(appState.profile));
+      } catch (err) {}
+      appState.planCibil = appState.profile.cibil;
+      appState.emiCibil = appState.profile.cibil;
+      refreshProfileUI();
+    }
+
+    function saveProfile(e) {
+      e.preventDefault();
+      persistProfile(readStartPageProfileInputs());
+      if (appState.showSuggestions) renderCardSuggestions();
+      showPage("home");
+      showToast("Profile saved! Welcome to FinLens.");
+    }
+
+    function skipRegistration() {
+      showPage("home");
+    }
+
+    function openSuggestedCards() {
+      appState.showSuggestions = true;
+      document.getElementById("card-sort").value = "savings";
+      openCardCatalog("all");
+      showToast("Best cards ranked by net annual savings for your expenses.");
+    }
+
+    function generateCardSuggestionsFromHome() {
+      persistProfile(readStartPageProfileInputs());
+      openSuggestedCards();
+    }
+
+    /* =====================================================================
+       4. COMMON CARD EXPLORER (DEBIT & CREDIT)
+       ===================================================================== */
+    function setCardType(type) {
+      appState.cardType = type;
+
+      const isAll = type === "all";
+      const isDebit = type === "debit";
+      const isCredit = type === "credit";
+
+      document.getElementById("seg-all").classList.toggle("active", isAll);
+      document.getElementById("seg-debit").classList.toggle("active", isDebit);
+      document.getElementById("seg-credit").classList.toggle("active", isCredit);
+
+      document.getElementById("cards-heading").textContent = isAll
+        ? "Card Explorer"
+        : (isCredit ? "Credit Card Explorer" : "Debit Card Explorer");
+      document.getElementById("cards-sub").textContent = isAll
+        ? "Browse debit and credit cards together by type, tier, fees, limits and perks. Select up to three to compare."
+        : (isCredit
+          ? "Browse credit cards by tier, annual fee, income requirement, rewards and perks."
+          : "Browse debit cards by tier, fees, limits and perks. Select up to three to compare.");
+
+      document.getElementById("slider-metric-title").textContent = isAll
+        ? "Max Min. Balance / Income"
+        : (isCredit ? "Max Min. Income" : "Max Min. Balance");
+      document.getElementById("lbl-cashback-perk").textContent = isDebit ? "Cashback" : "Rewards / Cashback";
+      document.getElementById("row-waiver-perk").style.display = isDebit ? "none" : "flex";
+      if (isDebit) document.getElementById("chk-waiver").checked = false;
+
+      updateCardSliderLabel();
+      closeCompareView();
+      renderCards();
+    }
+
+    function updateCardSliderLabel() {
+      const val = Number(document.getElementById("card-max-req").value);
+      const label = document.getElementById("slider-metric-val");
+      if (appState.cardType === "credit") {
+        label.textContent = val === 0 ? "Any income" : `Up to ${formatINR(val)}/mo`;
+      } else if (appState.cardType === "debit") {
+        label.textContent = val === 0 ? "Zero only" : `Up to ${formatINR(val)}`;
+      } else {
+        label.textContent = val === 0 ? "Zero only" : `Up to ${formatINR(val)}`;
+      }
+    }
+
+    function toggleTier(tier) {
+      const idx = appState.selectedTiers.indexOf(tier);
+      if (idx >= 0) appState.selectedTiers.splice(idx, 1);
+      else appState.selectedTiers.push(tier);
+      renderCards();
+    }
+
+    function toggleNetwork(net) {
+      const idx = appState.selectedNetworks.indexOf(net);
+      if (idx >= 0) appState.selectedNetworks.splice(idx, 1);
+      else appState.selectedNetworks.push(net);
+
+      document.querySelectorAll("[data-net]").forEach(btn => {
+        btn.classList.toggle("active", appState.selectedNetworks.includes(btn.dataset.net));
+      });
+      renderCards();
+    }
+
+    function resetCardFilters() {
+      document.getElementById("card-search").value = "";
+      document.getElementById("card-sort").value = "popular";
+      document.querySelector('input[name="feeOpt"][value="any"]').checked = true;
+      document.getElementById("card-max-req").value = 1000000;
+      document.getElementById("chk-lounge").checked = false;
+      document.getElementById("chk-cashback").checked = false;
+      document.getElementById("chk-insurance").checked = false;
+      document.getElementById("chk-waiver").checked = false;
+      appState.selectedTiers = [];
+      appState.selectedNetworks = [];
+      document.querySelectorAll("[data-net]").forEach(btn => btn.classList.remove("active"));
+      updateCardSliderLabel();
+      renderCards();
+    }
+
+    function calculateCardSavings(card, spend) {
+      const s = spend || DEFAULT_SPEND;
+      const rates = card.rates || {};
+      const fallbackRate = (Number(card.rewards) || 0) / 100;
+      const categoryAnnual = {
+        online: Math.round((Number(s.online) || 0) * 12 * (rates.online ?? fallbackRate)),
+        dining: Math.round((Number(s.dining) || 0) * 12 * (rates.dining ?? fallbackRate)),
+        travel: Math.round((Number(s.travel) || 0) * 12 * (rates.travel ?? fallbackRate)),
+        utility: Math.round((Number(s.utility) || 0) * 12 * (rates.utility ?? fallbackRate)),
+        offline: Math.round((Number(s.offline) || 0) * 12 * (rates.offline ?? fallbackRate))
+      };
+      const annualCardSpend = getCardSpendTotal(s) * 12;
+      const grossAnnualRewards = Object.values(categoryAnnual).reduce((sum, v) => sum + v, 0);
+      const feeWaived = card.annualFee > 0 && Boolean(card.hasWaiver) && card.waiverSpend != null && annualCardSpend >= card.waiverSpend;
+      const effectiveFee = card.annualFee === 0 || feeWaived ? 0 : card.annualFee;
+      const netAnnualSavings = grossAnnualRewards - effectiveFee;
+      return {
+        grossAnnualRewards,
+        effectiveFee,
+        feeWaived,
+        netAnnualSavings,
+        netMonthlySavings: Math.round(netAnnualSavings / 12),
+        categoryAnnual
+      };
+    }
+
+    function toggleCardSuggestions() {
+      appState.showSuggestions = !appState.showSuggestions;
+      if (appState.showSuggestions) {
+        document.getElementById("card-sort").value = "savings";
+      }
+      renderCards();
+    }
+
+    function compareTopSuggestedCards(ids) {
+      appState.compareCardIds = ids.slice(0, 3);
+      updateCompareTray();
+      openCompareView();
+    }
+
+    function renderCardSuggestions(pool) {
+      const panel = document.getElementById("card-suggestions-panel");
+      const btn = document.getElementById("toggle-suggestions-btn");
+      if (!appState.showSuggestions) {
+        panel.style.display = "none";
+        btn.textContent = "Generate Card Suggestions";
+        return;
+      }
+
+      btn.textContent = "Hide Suggestions";
+      panel.style.display = "block";
+      const s = appState.profile.spend || DEFAULT_SPEND;
+      const monthlyCardSpend = getCardSpendTotal(s);
+      const annualCardSpend = monthlyCardSpend * 12;
+
+      if (monthlyCardSpend <= 0) {
+        panel.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <div>
+              <strong style="font-size:1.05rem;">Add your monthly expenses to generate card suggestions</strong>
+              <div class="helper-text">Enter at least one spend category (online, dining, travel, utilities, or offline retail) on the Home page.</div>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="showPage('home')">Edit Expense Portfolio →</button>
+          </div>
+        `;
+        return;
+      }
+
+      const sourcePool = pool || (appState.cardType === "all" ? CARDS_CATALOG : CARDS_CATALOG.filter(c => c.type === appState.cardType));
+      const ranked = sourcePool
+        .map(c => ({ ...c, sav: calculateCardSavings(c, s) }))
+        .sort((a, b) => b.sav.netAnnualSavings - a.sav.netAnnualSavings || b.popular - a.popular)
+        .slice(0, 3);
+
+      const topIdsJson = JSON.stringify(ranked.map(c => c.id)).replace(/"/g, "'");
+      const catLabels = [
+        ["online", "Online"],
+        ["dining", "Dining"],
+        ["travel", "Travel"],
+        ["utility", "Utilities"],
+        ["offline", "Living/Offline"]
+      ];
+      const spendPills = catLabels
+        .filter(([k]) => (Number(s[k]) || 0) > 0)
+        .map(([k, lbl]) => `<span class="tag">${lbl}: ${formatINR(s[k])}/mo</span>`)
+        .join("");
+
+      panel.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+              <h2 style="margin:0; font-size:1.2rem; font-weight:800;">Best Cards for Your Expense Portfolio</h2>
+              <span class="tag tag-green">${formatINR(monthlyCardSpend)}/mo (${formatINR(annualCardSpend)}/yr)</span>
+            </div>
+            <div class="cat-breakdown" style="margin-top:8px;">${spendPills}</div>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn btn-secondary btn-sm" onclick="showPage('register')">Edit expenses</button>
+            ${ranked.length >= 2 ? `<button class="btn btn-primary btn-sm" onclick="compareTopSuggestedCards(${topIdsJson})">Compare Top ${ranked.length} →</button>` : ""}
+          </div>
+        </div>
+
+        <div class="suggestion-grid">
+          ${ranked.map((c, idx) => {
+            const rankLabel = idx === 0 ? "#1 Best Savings Match" : (idx === 1 ? "#2 Runner-Up" : "#3 Value Pick");
+            const feeNote = c.annualFee === 0
+              ? "₹0 (No annual fee)"
+              : (c.sav.feeWaived ? `₹0 (Waived on ${formatINR(c.waiverSpend)}/yr)` : `${formatINR(c.sav.effectiveFee)}/yr fee`);
+            const catChips = catLabels
+              .filter(([k]) => (Number(s[k]) || 0) > 0 && c.sav.categoryAnnual[k] > 0)
+              .map(([k, lbl]) => `<span class="tag">${lbl}: +${formatINR(c.sav.categoryAnnual[k])}/yr</span>`)
+              .join("");
+            return `
+              <div class="suggestion-card ${idx === 0 ? "top-pick" : ""}">
+                <div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; gap:6px; margin-bottom:8px;">
+                    <span class="tag ${idx === 0 ? "tag-green" : ""}" style="font-weight:800;">${rankLabel}</span>
+                    <span class="tag">${c.type === "credit" ? "CREDIT" : "DEBIT"}</span>
+                  </div>
+                  <strong style="font-size:1rem; display:block;">${c.name}</strong>
+                  <div class="helper-text" style="margin-bottom:10px;">${c.bank} • ${c.network}</div>
+
+                  <div style="background:var(--bg-page); border:1px solid var(--border-color); border-radius:10px; padding:10px 12px; margin-bottom:10px;">
+                    <div class="helper-text">Estimated Net Annual Savings</div>
+                    <div class="savings-hero-num">${formatINR(c.sav.netAnnualSavings)} <span style="font-size:0.78rem; font-weight:600; color:var(--text-secondary);">/ yr (${formatINR(c.sav.netMonthlySavings)}/mo)</span></div>
+                    <div class="helper-text" style="margin-top:4px;">Gross rewards: <strong>${formatINR(c.sav.grossAnnualRewards)}/yr</strong> • Fee: <strong>${feeNote}</strong></div>
+                  </div>
+
+                  <div class="cat-breakdown">${catChips || `<span class="helper-text">No category rewards on current spend</span>`}</div>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; padding-top:8px; border-top:1px solid var(--bg-subtle); font-size:0.8rem;">
+                  <button onclick="openCardModal('${c.id}')" style="background:none; border:none; color:var(--green-primary); font-weight:700; cursor:pointer; padding:0;">View details →</button>
+                  <button onclick="toggleCompareCard('${c.id}')" style="background:none; border:none; color:var(--text-secondary); font-weight:600; cursor:pointer; padding:0;">${appState.compareCardIds.includes(c.id) ? "✓ In compare" : "+ Compare"}</button>
+                </div>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+
+    function renderCards() {
+      const pool = appState.cardType === "all"
+        ? CARDS_CATALOG
+        : CARDS_CATALOG.filter(c => c.type === appState.cardType);
+      const isAll = appState.cardType === "all";
+      const isCredit = appState.cardType === "credit";
+      const spend = appState.profile.spend || DEFAULT_SPEND;
+
+      renderCardSuggestions(pool);
+
+      // Tier checkboxes with live counts
+      const tiers = ["Basic", "Standard", "Premium", "Platinum"];
+      document.getElementById("tier-checkboxes").innerHTML = tiers.map(tier => {
+        const count = pool.filter(c => c.tier === tier).length;
+        const checked = appState.selectedTiers.includes(tier) ? "checked" : "";
+        return `
+          <div class="check-row">
+            <label><input type="checkbox" ${checked} onchange="toggleTier('${tier}')" /> ${tier}</label>
+            <span class="helper-text">${count}</span>
+          </div>
+        `;
+      }).join("");
+
+      const search = document.getElementById("card-search").value.trim().toLowerCase();
+      const feeOpt = document.querySelector('input[name="feeOpt"]:checked').value;
+      const maxReq = Number(document.getElementById("card-max-req").value);
+      const reqLounge = document.getElementById("chk-lounge").checked;
+      const reqCashback = document.getElementById("chk-cashback").checked;
+      const reqInsurance = document.getElementById("chk-insurance").checked;
+      const reqWaiver = appState.cardType !== "debit" && document.getElementById("chk-waiver").checked;
+      const sort = document.getElementById("card-sort").value;
+
+      const filtered = pool
+        .map(c => ({ ...c, sav: calculateCardSavings(c, spend) }))
+        .filter(c => {
+          const reqAmt = c.minReq ?? c.minBalance;
+          if (search && !c.name.toLowerCase().includes(search) && !c.bank.toLowerCase().includes(search)) return false;
+          if (appState.selectedTiers.length > 0 && !appState.selectedTiers.includes(c.tier)) return false;
+          if (feeOpt === "zero" && c.annualFee !== 0) return false;
+          if (feeOpt === "under1000" && c.annualFee >= 1000) return false;
+          if (feeOpt === "1000plus" && c.annualFee < 1000) return false;
+          if (reqAmt != null && reqAmt > maxReq) return false;
+          if (appState.selectedNetworks.length > 0 && !appState.selectedNetworks.some(n => (c.network || "").toLowerCase().includes(n.toLowerCase()))) return false;
+          if (reqLounge && !c.hasLounge) return false;
+          if (reqCashback && c.rewards <= 0) return false;
+          if (reqInsurance && !c.hasInsurance) return false;
+          if (reqWaiver && !c.hasWaiver) return false;
+          return true;
+        });
+
+      filtered.sort((a, b) => {
+        if (sort === "savings") return b.sav.netAnnualSavings - a.sav.netAnnualSavings || b.popular - a.popular;
+        if (sort === "rewards") return b.rewards - a.rewards;
+        if (sort === "beginner") return b.beginner - a.beginner;
+        if (sort === "fee") return a.annualFee - b.annualFee;
+        return b.popular - a.popular;
+      });
+
+      // Computed summary strip
+      const freeCount = filtered.filter(c => c.annualFee === 0).length;
+      const loungeCount = filtered.filter(c => c.hasLounge).length;
+      const debitCount = filtered.filter(c => c.type === "debit").length;
+      const creditCount = filtered.filter(c => c.type === "credit").length;
+      document.getElementById("cards-summary").innerHTML = `
+        ${isAll ? `<span class="tag">${debitCount} debit • ${creditCount} credit</span>` : ""}
+        <span class="tag tag-green">${freeCount} ${isCredit ? "lifetime-free cards" : "cards with ₹0 annual fee"}</span>
+        <span class="tag">${loungeCount} with lounge access</span>
+        <span class="tag" style="font-weight:800;">${filtered.length} shown</span>
+      `;
+
+      const grid = document.getElementById("cards-grid");
+      const empty = document.getElementById("cards-empty");
+      if (filtered.length === 0) {
+        grid.innerHTML = "";
+        empty.style.display = "block";
+        return;
+      }
+      empty.style.display = "none";
+
+      const showCardSavingsTag = getCardSpendTotal(spend) > 0;
+      grid.innerHTML = filtered.map(c => {
+        const selected = appState.compareCardIds.includes(c.id);
+        const cardIsCredit = c.type === "credit";
+        const reqAmt = c.minReq ?? c.minBalance;
+        const reqLabel = cardIsCredit ? "Fee Waiver" : "Min. Balance";
+        const reqValue = cardIsCredit
+          ? (c.annualFee === 0 ? "Lifetime Free" : (c.waiverSpend == null ? "No waiver" : `${formatINR(c.waiverSpend)}/yr`))
+          : (reqAmt == null ? "Not published" : (reqAmt === 0 ? "Zero" : formatINR(reqAmt)));
+
+        return `
+          <div class="bank-card ${selected ? "selected" : ""}">
+            <div>
+              <div class="bank-card-top ${c.color}">
+                <div style="display:flex; justify-content:space-between; font-size:0.7rem; font-weight:700;">
+                  <span>${c.name.toUpperCase()}</span>
+                  <span style="background:rgba(255,255,255,0.2); padding:2px 6px; border-radius:4px;">${c.tier}</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <div class="chip-box" style="width:28px; height:18px;"></div>
+                  <span style="font-size:0.65rem; background:rgba(0,0,0,0.25); padding:2px 6px; border-radius:4px;">${cardIsCredit ? "CREDIT CARD" : "DEBIT CARD"}</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:0.72rem; font-weight:700;">
+                  <span style="font-family:monospace;">•••• 0000</span>
+                  <span>${c.network}</span>
+                </div>
+              </div>
+
+              <div class="bank-card-body">
+                <strong style="font-size:1rem;">${c.name}</strong>
+                <div class="helper-text">${c.bank} • ${cardIsCredit ? "Credit" : "Debit"} • ${c.network}</div>
+
+                <div class="mini-metrics">
+                  <div class="mini-box">
+                    <div class="k">Annual Fee</div>
+                    <div class="v">${c.annualFee === 0 ? "₹0 (No fee)" : formatINR(c.annualFee)}</div>
+                  </div>
+                  <div class="mini-box">
+                    <div class="k">${reqLabel}</div>
+                    <div class="v">${reqValue}</div>
+                  </div>
+                </div>
+
+                <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                  ${showCardSavingsTag ? `<span class="tag tag-green">Est. net savings: ${formatINR(c.sav.netAnnualSavings)}/yr</span>` : ""}
+                  <span class="tag">${c.rewards > 0 ? c.rewards + "% " + (cardIsCredit ? "Rewards" : "Cashback") : "No cashback"}</span>
+                  <span class="tag ${c.hasLounge ? "tag-green" : ""}">${c.hasLounge ? "Lounge: " + c.lounge : "No lounge"}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bank-card-foot">
+              <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-weight:600;">
+                <input type="checkbox" ${selected ? "checked" : ""} onchange="toggleCompareCard('${c.id}')" /> Compare
+              </label>
+              <button onclick="openCardModal('${c.id}')" style="background:none; border:none; color:var(--green-primary); font-weight:700; cursor:pointer;">View details →</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function toggleCompareCard(id) {
+      const idx = appState.compareCardIds.indexOf(id);
+      if (idx >= 0) {
+        appState.compareCardIds.splice(idx, 1);
+      } else {
+        if (appState.compareCardIds.length >= 3) {
+          showToast("You can compare up to 3 cards at a time.");
+          renderCards();
+          return;
+        }
+        appState.compareCardIds.push(id);
+      }
+      updateCompareTray();
+      renderCards();
+    }
+
+    function clearCompare() {
+      appState.compareCardIds = [];
+      updateCompareTray();
+      renderCards();
+    }
+
+    function updateCompareTray() {
+      const tray = document.getElementById("compare-tray");
+      if (appState.compareCardIds.length === 0) {
+        tray.classList.remove("visible");
+        return;
+      }
+      tray.classList.add("visible");
+      document.getElementById("tray-count").textContent = `Compare ${appState.compareCardIds.length}/3`;
+      document.getElementById("tray-open-btn").disabled = appState.compareCardIds.length < 2;
+
+      document.getElementById("tray-chips").innerHTML = appState.compareCardIds.map(id => {
+        const card = CARDS_CATALOG.find(c => c.id === id);
+        return `<span class="tag" style="background:#1e293b; color:#fff;">${card.name} <button onclick="toggleCompareCard('${id}')" style="background:none; border:none; color:#94a3b8; cursor:pointer; font-weight:700;">✕</button></span>`;
+      }).join("");
+    }
+
+    function openCompareView() {
+      if (appState.compareCardIds.length < 2) {
+        showToast("Select at least 2 cards to compare.");
+        return;
+      }
+      const cards = appState.compareCardIds.map(id => CARDS_CATALOG.find(c => c.id === id)).filter(Boolean);
+      if (cards.length < 2) {
+        showToast("Select at least 2 cards to compare.");
+        return;
+      }
+      const allCredit = cards.every(c => c.type === "credit");
+      const allDebit = cards.every(c => c.type === "debit");
+
+      document.getElementById("cards-browser-view").style.display = "none";
+      document.getElementById("compare-tray").classList.remove("visible");
+      document.getElementById("cards-compare-view").style.display = "block";
+
+      const minFee = Math.min(...cards.map(c => c.annualFee));
+      const reqValues = cards.map(c => c.minReq ?? c.minBalance).filter(v => v != null);
+      const minReq = reqValues.length ? Math.min(...reqValues) : null;
+      const maxRew = Math.max(...cards.map(c => c.rewards));
+      const tick = `<span class="best-tick">✓</span>`;
+      const fmtOptINR = (v, suffix = "") => v == null ? "<em>Not published</em>" : `${formatINR(v)}${suffix}`;
+
+      const rows = allCredit ? [
+        { label: "Card Type", fn: () => "Credit" },
+        { label: "Tier", fn: c => c.tier },
+        { label: "Network", fn: c => c.network },
+        { label: "Annual Fee", fn: c => `${c.feeLabel || formatINR(c.annualFee)}${c.annualFee === minFee ? tick : ""}` },
+        { label: "Fee Waiver Spend", fn: c => c.annualFee === 0 ? "Lifetime Free" : (c.waiverSpend == null ? "<em>Not published</em>" : `${formatINR(c.waiverSpend)}/yr`) },
+        { label: "Min. Monthly Income", fn: c => { const v = c.minReq ?? c.minBalance; return v == null ? "<em>Not published</em>" : `${formatINR(v)}/mo${v === minReq ? tick : ""}`; } },
+        { label: "Credit Limit", fn: c => c.creditLimit || "<em>Not published</em>" },
+        { label: "Rewards / Cashback", fn: c => `${c.rewards}%${c.rewards === maxRew ? tick : ""}` },
+        { label: "Lounge Access", fn: c => `${c.lounge}${c.hasLounge ? tick : ""}` },
+        { label: "Forex Markup", fn: c => c.forex || "<em>Not published</em>" },
+        { label: "Interest-Free Period", fn: c => c.graceDays == null ? "<em>Not published</em>" : `Up to ${c.graceDays} days` },
+        { label: "Monthly APR", fn: c => c.aprMonthly == null ? "<em>Not published</em>" : `${c.aprMonthly}% / mo` },
+        { label: "Insurance Cover", fn: c => c.insurance || "<em>Not published</em>" }
+      ] : allDebit ? [
+        { label: "Card Type", fn: () => "Debit" },
+        { label: "Tier", fn: c => c.tier },
+        { label: "Network", fn: c => c.network },
+        { label: "Annual Fee", fn: c => `${c.feeLabel || formatINR(c.annualFee)}${c.annualFee === minFee ? tick : ""}` },
+        { label: "Minimum Balance", fn: c => { const v = c.minReq ?? c.minBalance; return v == null ? "<em>Not published</em>" : `${v === 0 ? "Zero" : formatINR(v)}${v === minReq ? tick : ""}`; } },
+        { label: "ATM Limit / Day", fn: c => fmtOptINR(c.atmLimit) },
+        { label: "POS / Online Limit", fn: c => fmtOptINR(c.posLimit) },
+        { label: "Cashback", fn: c => c.rewards > 0 ? `${c.rewards}%${c.rewards === maxRew ? tick : ""}` : "—" },
+        { label: "Lounge Access", fn: c => `${c.lounge}${c.hasLounge ? tick : ""}` },
+        { label: "Forex Markup", fn: c => c.forex || "<em>Not published</em>" },
+        { label: "Insurance Cover", fn: c => c.insurance || "<em>Not published</em>" }
+      ] : [
+        { label: "Card Type", fn: c => c.type === "credit" ? "Credit" : "Debit" },
+        { label: "Tier", fn: c => c.tier },
+        { label: "Network", fn: c => c.network },
+        { label: "Annual Fee", fn: c => `${c.feeLabel || formatINR(c.annualFee)}${c.annualFee === minFee ? tick : ""}` },
+        { label: "Fee Waiver / Min. Balance", fn: c => c.type === "credit"
+          ? (c.annualFee === 0 ? "Lifetime Free" : (c.waiverSpend == null ? "<em>Not published</em>" : `${formatINR(c.waiverSpend)}/yr waiver`))
+          : ((c.minReq ?? c.minBalance) == null ? "<em>Not published</em>" : ((c.minReq ?? c.minBalance) === 0 ? "Zero AMB" : `${formatINR(c.minReq ?? c.minBalance)} AMB`)) },
+        { label: "Daily Limits (ATM / POS)", fn: c => c.type === "debit"
+          ? `${c.atmLimit == null ? "—" : formatINR(c.atmLimit)} / ${c.posLimit == null ? "—" : formatINR(c.posLimit)}`
+          : "<em>N/A (Credit)</em>" },
+        { label: "Rewards / Cashback", fn: c => c.rewards > 0 ? `${c.rewards}%${c.rewards === maxRew ? tick : ""}` : "—" },
+        { label: "Lounge Access", fn: c => `${c.lounge}${c.hasLounge ? tick : ""}` },
+        { label: "Forex Markup", fn: c => c.forex || "<em>Not published</em>" },
+        { label: "Monthly APR", fn: c => c.type === "credit" ? (c.aprMonthly == null ? "<em>Not published</em>" : `${c.aprMonthly}% / mo`) : "<em>N/A (Debit)</em>" },
+        { label: "Insurance Cover", fn: c => c.insurance || "<em>Not published</em>" }
+      ];
+
+      document.getElementById("compare-table").innerHTML = `
+        <thead>
+          <tr>
+            <th class="attr-col">Attribute</th>
+            ${cards.map(c => `<th><div style="font-size:1.05rem;">${c.name}</div><div class="helper-text">${c.bank} • ${c.network}</div></th>`).join("")}
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map(r => `
+            <tr>
+              <td class="attr-col">${r.label}</td>
+              ${cards.map(c => `<td><strong>${r.fn(c)}</strong></td>`).join("")}
+            </tr>
+          `).join("")}
+        </tbody>
+      `;
+    }
+
+    function closeCompareView() {
+      document.getElementById("cards-compare-view").style.display = "none";
+      document.getElementById("cards-browser-view").style.display = "block";
+      updateCompareTray();
+    }
+
+    function openCardModal(id) {
+      const c = CARDS_CATALOG.find(item => item.id === id);
+      const isCredit = c.type === "credit";
+
+      document.getElementById("modal-header").className = c.color;
+      document.getElementById("modal-tier").textContent = `${c.tier} • ${isCredit ? "CREDIT" : "DEBIT"}`;
+      document.getElementById("modal-title").textContent = c.name;
+      document.getElementById("modal-bank").textContent = `${c.bank} • ${c.network}`;
+
+      const reqAmt = c.minReq ?? c.minBalance;
+      const items = isCredit ? [
+        ["Annual Fee", c.annualFee === 0 ? (c.feeLabel || "₹0 (Lifetime free)") : (c.feeLabel || formatINR(c.annualFee))],
+        ["Fee Waiver Spend", c.annualFee === 0 ? "Not applicable" : (c.waiverSpend == null ? "Not published" : `${formatINR(c.waiverSpend)}/yr`)],
+        ["Min. Monthly Income", reqAmt == null ? "Not published" : `${formatINR(reqAmt)}/mo`],
+        ["Credit Limit", c.creditLimit || "Not published"],
+        ["Rewards Rate", `${c.rewards}%`],
+        ["Lounge Access", c.lounge],
+        ["Forex Markup", c.forex || "Not published"],
+        ["Grace Period & APR", `${c.graceDays == null ? "—" : c.graceDays + " days"} • ${c.aprMonthly == null ? "—" : c.aprMonthly + "%/mo"}`]
+      ] : [
+        ["Annual Fee", c.annualFee === 0 ? "₹0 (No fee)" : (c.feeLabel || formatINR(c.annualFee))],
+        ["Minimum Balance", reqAmt == null ? "Not published" : (reqAmt === 0 ? "Zero" : formatINR(reqAmt))],
+        ["ATM Limit / Day", c.atmLimit == null ? "Not published" : formatINR(c.atmLimit)],
+        ["POS Limit / Day", c.posLimit == null ? "Not published" : formatINR(c.posLimit)],
+        ["Cashback", c.rewards > 0 ? `${c.rewards}%` : "None"],
+        ["Lounge Access", c.lounge],
+        ["Forex Markup", c.forex || "Not published"],
+        ["Insurance Cover", c.insurance || "Not published"]
+      ];
+
+      document.getElementById("modal-grid").innerHTML = items.map(([k, v]) => `
+        <div class="stat-tile">
+          <div class="lbl">${k}</div>
+          <div class="val" style="font-size:0.9rem;">${v}</div>
+        </div>
+      `).join("");
+
+      document.getElementById("modal-notes").innerHTML = `<strong>Highlights:</strong> ${c.summary}`;
+      document.getElementById("card-modal").classList.add("open");
+    }
+
+    function closeCardModal() {
+      document.getElementById("card-modal").classList.remove("open");
+    }
+
+    /* =====================================================================
+       5. PLAN-A-GOAL LOAN PLANNER
+       ===================================================================== */
+    function renderGoalPills() {
+      document.getElementById("goal-pills").innerHTML = GOALS.map(g => `
+        <button type="button" class="choice-pill ${g.id === appState.goalId ? "active" : ""}" onclick="selectGoal('${g.id}')">${g.label}</button>
+      `).join("");
+    }
+
+    function selectGoal(goalId) {
+      appState.goalId = goalId;
+      const g = GOALS.find(item => item.id === goalId);
+      appState.planAmount = g.defAmt;
+      appState.planTenure = g.defTen;
+      appState.compareOfferIds = [];
+      updateOfferCompareBtn();
+
+      const amtIn = document.getElementById("plan-amount");
+      const amtSl = document.getElementById("plan-amount-slider");
+      amtIn.value = g.defAmt;
+      amtSl.min = g.minAmt;
+      amtSl.max = g.maxAmt;
+      amtSl.step = g.minAmt >= 100000 ? 10000 : 1000;
+      amtSl.value = g.defAmt;
+      document.getElementById("plan-amt-min").textContent = formatINR(g.minAmt);
+      document.getElementById("plan-amt-max").textContent = formatINR(g.maxAmt);
+
+      const tenIn = document.getElementById("plan-tenure");
+      const tenSl = document.getElementById("plan-tenure-slider");
+      tenIn.value = g.defTen;
+      tenSl.min = g.minTen;
+      tenSl.max = g.maxTen;
+      tenSl.value = g.defTen;
+      document.getElementById("plan-ten-min").textContent = `${g.minTen} months`;
+      document.getElementById("plan-ten-max").textContent = `Allowed: ${g.minTen}–${g.maxTen}`;
+      document.getElementById("plan-years-text").textContent = `months (${(g.defTen / 12).toFixed(1).replace(".0", "")} yrs)`;
+      document.getElementById("goal-note").textContent = `Category: ${g.category}. ${g.note}`;
+
+      renderGoalPills();
+      renderOffers();
+    }
+
+    function onPlanAmountChange() {
+      appState.planAmount = Number(document.getElementById("plan-amount").value);
+      document.getElementById("plan-amount-slider").value = appState.planAmount || 0;
+      renderOffers();
+    }
+
+    function onPlanAmountSlider() {
+      appState.planAmount = Number(document.getElementById("plan-amount-slider").value);
+      document.getElementById("plan-amount").value = appState.planAmount;
+      renderOffers();
+    }
+
+    function onPlanTenureChange() {
+      appState.planTenure = Number(document.getElementById("plan-tenure").value);
+      document.getElementById("plan-tenure-slider").value = appState.planTenure || 0;
+      document.getElementById("plan-years-text").textContent = `months (${(appState.planTenure / 12).toFixed(1).replace(".0", "")} yrs)`;
+      renderOffers();
+    }
+
+    function onPlanTenureSlider() {
+      appState.planTenure = Number(document.getElementById("plan-tenure-slider").value);
+      document.getElementById("plan-tenure").value = appState.planTenure;
+      document.getElementById("plan-years-text").textContent = `months (${(appState.planTenure / 12).toFixed(1).replace(".0", "")} yrs)`;
+      renderOffers();
+    }
+
+    function renderPlanCibilPills() {
+      document.getElementById("plan-cibil-pills").innerHTML = CIBIL_OPTIONS.map(b => `
+        <button type="button" class="choice-pill ${b.id === appState.planCibil ? "active" : ""}" onclick="appState.planCibil='${b.id}'; renderPlanCibilPills(); renderOffers();">${b.label}</button>
+      `).join("");
+    }
+
+    function setOfferSort(key) {
+      appState.offerSort = key;
+      document.querySelectorAll("[data-osort]").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.osort === key);
+      });
+      renderOffers();
+    }
+
+    function computeOfferNumbers(offer) {
+      const band = CIBIL_OPTIONS.find(b => b.id === appState.planCibil) || CIBIL_OPTIONS[3];
+      const P = appState.planAmount;
+      const n = appState.planTenure;
+      const fee = P * (offer.feePct / 100);
+
+      if (band.pos === null) {
+        const emiLow = calculateEMI(P, offer.rateMin, n);
+        const emiHigh = calculateEMI(P, offer.rateMax, n);
+        return {
+          isRange: true,
+          rateStr: `${offer.rateMin.toFixed(2)}–${offer.rateMax.toFixed(2)}%`,
+          emiStr: `${formatINR(emiLow)} – ${formatINR(emiHigh)}`,
+          intStr: `${formatINR(emiLow * n - P)} – ${formatINR(emiHigh * n - P)}`,
+          fee,
+          sortRate: offer.rateMin,
+          sortEmi: emiLow,
+          handoffRate: ((offer.rateMin + offer.rateMax) / 2).toFixed(2),
+          warn: false
+        };
+      }
+
+      const rate = offer.rateMin + band.pos * (offer.rateMax - offer.rateMin);
+      const emi = calculateEMI(P, rate, n);
+      return {
+        isRange: false,
+        rateStr: `${rate.toFixed(2)}% p.a.`,
+        emiStr: formatINR(emi),
+        intStr: formatINR(Math.max(0, emi * n - P)),
+        fee,
+        sortRate: rate,
+        sortEmi: emi,
+        handoffRate: rate.toFixed(2),
+        warn: band.floor < offer.minCibil
+      };
+    }
+
+    function renderOffers(clicked = false) {
+      const g = GOALS.find(item => item.id === appState.goalId);
+      const amtErr = document.getElementById("plan-amt-err");
+      const tenErr = document.getElementById("plan-ten-err");
+      let ok = true;
+
+      if (isNaN(appState.planAmount) || appState.planAmount < g.minAmt || appState.planAmount > g.maxAmt) {
+        amtErr.textContent = `${formatINR(g.minAmt)} – ${formatINR(g.maxAmt)}`;
+        ok = false;
+      } else {
+        amtErr.textContent = "";
+      }
+
+      if (isNaN(appState.planTenure) || appState.planTenure < g.minTen || appState.planTenure > g.maxTen) {
+        tenErr.textContent = `${g.minTen} – ${g.maxTen} mos`;
+        ok = false;
+      } else {
+        tenErr.textContent = "";
+      }
+
+      if (!ok) {
+        if (clicked) showToast("Please check amount and tenure limits.");
+        return;
+      }
+
+      const list = LOAN_OFFERS
+        .filter(o => o.category === g.category)
+        .map(o => ({ ...o, calc: computeOfferNumbers(o) }));
+
+      list.sort((a, b) => {
+        if (appState.offerSort === "emi") return a.calc.sortEmi - b.calc.sortEmi;
+        if (appState.offerSort === "disbursal") return a.days - b.days;
+        if (appState.offerSort === "popular") return b.popular - a.popular;
+        return a.calc.sortRate - b.calc.sortRate;
+      });
+
+      document.getElementById("offers-title").textContent = `${list.length} loan offers • ${g.category}`;
+      document.getElementById("offers-subtitle").textContent = `${formatINR(appState.planAmount)} over ${appState.planTenure} months • CIBIL band ${appState.planCibil}`;
+
+      document.getElementById("offers-list").innerHTML = list.map((o, idx) => {
+        const checked = appState.compareOfferIds.includes(o.id) ? "checked" : "";
+        return `
+          <div class="offer-card ${idx === 0 ? "highlight" : ""}">
+            <div class="offer-top">
+              <div>
+                <strong style="font-size:1.05rem;">${o.lender}</strong>
+                <div class="helper-text">${o.category} • rate range ${o.rateMin.toFixed(2)}–${o.rateMax.toFixed(2)}%</div>
+              </div>
+              <div style="display:flex; gap:6px;">
+                ${idx === 0 ? `<span class="tag tag-green">Top Match</span>` : ""}
+              </div>
+            </div>
+
+            <div class="offer-metrics">
+              <div>
+                <div class="m-lbl">Estimated EMI</div>
+                <div class="m-val big">${o.calc.emiStr}<span style="font-size:0.75rem; font-weight:500;">/mo</span></div>
+              </div>
+              <div>
+                <div class="m-lbl">Est. Rate</div>
+                <div class="m-val">${o.calc.rateStr}</div>
+              </div>
+              <div>
+                <div class="m-lbl">Total Interest</div>
+                <div class="m-val">${o.calc.intStr}</div>
+              </div>
+              <div>
+                <div class="m-lbl">Processing Fee</div>
+                <div class="m-val">${formatINR(o.calc.fee)} (${o.feePct}%)</div>
+              </div>
+              <div>
+                <div class="m-lbl">Disbursal</div>
+                <div class="m-val">~${o.days} ${o.days === 1 ? "day" : "days"}</div>
+              </div>
+            </div>
+
+            <div class="offer-bottom">
+              <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                <label style="display:flex; align-items:center; gap:5px; cursor:pointer; font-weight:600;">
+                  <input type="checkbox" ${checked} onchange="toggleOfferCompare('${o.id}')" /> Compare
+                </label>
+                <span style="color:${o.calc.warn ? "#b45309" : "#64748b"};">
+                  Min. CIBIL ${o.minCibil} • ${o.calc.warn ? "approval may be difficult for selected band" : "within eligibility band"}
+                </span>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="sendOfferToEmi(${appState.planAmount}, ${o.calc.handoffRate}, ${appState.planTenure})">Check affordability →</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function toggleOfferCompare(id) {
+      const idx = appState.compareOfferIds.indexOf(id);
+      if (idx >= 0) appState.compareOfferIds.splice(idx, 1);
+      else {
+        if (appState.compareOfferIds.length >= 3) {
+          showToast("Select up to 3 loan offers to compare.");
+          renderOffers();
+          return;
+        }
+        appState.compareOfferIds.push(id);
+      }
+      updateOfferCompareBtn();
+    }
+
+    function updateOfferCompareBtn() {
+      const btn = document.getElementById("compare-offers-btn");
+      btn.style.display = appState.compareOfferIds.length >= 2 ? "inline-flex" : "none";
+      btn.textContent = `Compare selected (${appState.compareOfferIds.length}/3)`;
+    }
+
+    function openOfferCompare() {
+      const offers = appState.compareOfferIds.map(id => {
+        const o = LOAN_OFFERS.find(item => item.id === id);
+        return { ...o, calc: computeOfferNumbers(o) };
+      });
+      document.getElementById("offer-compare-table").innerHTML = `
+        <thead>
+          <tr>
+            <th class="attr-col">Metric</th>
+            ${offers.map(o => `<th>${o.lender}</th>`).join("")}
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="attr-col">Est. Rate</td>${offers.map(o => `<td><strong>${o.calc.rateStr}</strong></td>`).join("")}</tr>
+          <tr><td class="attr-col">Estimated EMI</td>${offers.map(o => `<td><strong style="color:var(--green-primary);">${o.calc.emiStr}/mo</strong></td>`).join("")}</tr>
+          <tr><td class="attr-col">Total Interest</td>${offers.map(o => `<td>${o.calc.intStr}</td>`).join("")}</tr>
+          <tr><td class="attr-col">Processing Fee</td>${offers.map(o => `<td>${formatINR(o.calc.fee)} (${o.feePct}%)</td>`).join("")}</tr>
+          <tr><td class="attr-col">Prepayment</td>${offers.map(o => `<td>${o.prepayPct === 0 ? "Nil" : o.prepayPct + "%"}</td>`).join("")}</tr>
+          <tr><td class="attr-col">Disbursal</td>${offers.map(o => `<td>~${o.days} days</td>`).join("")}</tr>
+        </tbody>
+      `;
+      document.getElementById("offer-modal").classList.add("open");
+    }
+
+    function closeOfferCompare() {
+      document.getElementById("offer-modal").classList.remove("open");
+    }
+
+    function sendOfferToEmi(amount, rate, tenure) {
+      setEmiMode("loan");
+      document.getElementById("emi-principal").value = amount;
+      document.getElementById("emi-rate").value = rate;
+      document.getElementById("emi-tenure").value = tenure;
+      appState.emiCibil = appState.planCibil;
+      showPage("emi");
+      showToast("Loan details loaded into EMI Check.");
+    }
+
+    /* =====================================================================
+       6. EMI AFFORDABILITY ADVISOR
+       ===================================================================== */
+    function setEmiMode(mode) {
+      appState.emiMode = mode;
+      document.getElementById("emi-mode-loan").classList.toggle("active", mode === "loan");
+      document.getElementById("emi-mode-direct").classList.toggle("active", mode === "direct");
+      document.getElementById("emi-loan-inputs").style.display = mode === "loan" ? "block" : "none";
+      document.getElementById("emi-direct-input").style.display = mode === "direct" ? "block" : "none";
+      runEmiCheck();
+    }
+
+    function renderEmiCibilPills() {
+      document.getElementById("emi-cibil-pills").innerHTML = CIBIL_OPTIONS.map(b => `
+        <button type="button" class="choice-pill ${b.id === appState.emiCibil ? "active" : ""}" onclick="appState.emiCibil='${b.id}'; renderEmiCibilPills(); runEmiCheck();">${b.label}</button>
+      `).join("");
+    }
+
+    function saveEmiBudgetToProfile() {
+      persistProfile({
+        name: appState.profile.name || "",
+        income: Math.max(1000, Number(document.getElementById("emi-income").value) || 0),
+        expenses: Math.max(0, Number(document.getElementById("emi-expenses").value) || 0),
+        emis: Math.max(0, Number(document.getElementById("emi-existing").value) || 0),
+        cibil: appState.emiCibil,
+        spend: appState.profile.spend || { ...DEFAULT_SPEND }
+      });
+      showToast("Budget figures saved to browser profile.");
+    }
+
+    function runEmiCheck(notify = false) {
+      const income = Number(document.getElementById("emi-income").value);
+      const expenses = Math.max(0, Number(document.getElementById("emi-expenses").value) || 0);
+      const existing = Math.max(0, Number(document.getElementById("emi-existing").value) || 0);
+      const errBanner = document.getElementById("emi-error-banner");
+
+      document.getElementById("emi-annual-text").textContent = income > 0 ? `${formatINR(income * 12)} / yr` : "—";
+
+      if (isNaN(income) || income <= 0) {
+        errBanner.style.display = "block";
+        return;
+      }
+      errBanner.style.display = "none";
+
+      let newEmi = 0;
+      let totalInterest = 0;
+      let totalRepay = 0;
+      let principal = 0;
+
+      if (appState.emiMode === "loan") {
+        principal = Math.max(0, Number(document.getElementById("emi-principal").value) || 0);
+        const rate = Math.max(0, Number(document.getElementById("emi-rate").value) || 0);
+        const tenure = Math.max(1, Number(document.getElementById("emi-tenure").value) || 1);
+        newEmi = calculateEMI(principal, rate, tenure);
+        totalRepay = newEmi * tenure;
+        totalInterest = Math.max(0, totalRepay - principal);
+      } else {
+        newEmi = Math.max(0, Number(document.getElementById("emi-known").value) || 0);
+      }
+
+      const foir = ((existing + newEmi) / income) * 100;
+      const disposable = income - expenses - existing - newEmi;
+      const leftPct = (disposable / income) * 100;
+
+      // Update FOIR Gauge Needle (-90deg to +90deg)
+      const angle = -90 + (Math.min(Math.max(foir, 0), 100) / 100) * 180;
+      document.getElementById("foir-needle").setAttribute("transform", `rotate(${angle.toFixed(1)} 120 115)`);
+      document.getElementById("foir-pct-val").textContent = `${foir.toFixed(1)}%`;
+      document.getElementById("foir-math-str").textContent = `(${formatINR(existing)} + ${formatINR(newEmi)}) ÷ ${formatINR(income)}`;
+
+      // Determine Verdict (more cautious of FOIR and disposable income share)
+      let verdict = { cls: "", title: "Good", msg: `FOIR is within the 35% comfortable limit and ${Math.round(leftPct)}% of income remains after all obligations.`, tags: ["FOIR ≤ 35%", "Left over ≥ 20%"] };
+      if (foir > 55 || leftPct < 5 || disposable <= 0) {
+        verdict = { cls: "not-rec", title: "Not Recommended", msg: `High repayment pressure (${foir.toFixed(1)}% FOIR; ${formatINR(disposable)} left over). Consider a smaller loan or longer tenure.`, tags: ["FOIR > 55% or <5% left", "Reconsider loan"] };
+      } else if (foir > 45 || leftPct < 10) {
+        verdict = { cls: "risky", title: "Risky", msg: `May strain your monthly budget (${foir.toFixed(1)}% FOIR; ${leftPct.toFixed(1)}% left over). Keep a stronger buffer.`, tags: ["FOIR 46–55%", "Tight cashflow"] };
+      } else if (foir > 35 || leftPct < 20) {
+        verdict = { cls: "manageable", title: "Manageable", msg: `Affordable, though monthly flexibility is tighter (${foir.toFixed(1)}% FOIR; ${leftPct.toFixed(1)}% left over).`, tags: ["FOIR 36–45%", "Left over 10–20%"] };
+      }
+
+      const vCard = document.getElementById("verdict-card");
+      vCard.className = "verdict-box " + verdict.cls;
+      document.getElementById("verdict-label").textContent = verdict.title;
+      document.getElementById("verdict-msg").textContent = verdict.msg;
+      document.getElementById("verdict-tags").innerHTML = verdict.tags.map(t => `<span class="tag" style="background:#fff;">${t}</span>`).join("");
+
+      // Update Stacked Breakdown Bar
+      document.getElementById("breakdown-title").textContent = `Where your ${formatINR(income)} goes each month`;
+      const totalUsed = expenses + existing + newEmi;
+      document.getElementById("overspend-tag").style.display = totalUsed > income ? "inline-block" : "none";
+
+      const base = Math.max(income, totalUsed);
+      document.getElementById("seg-exp").style.width = `${(expenses / base) * 100}%`;
+      document.getElementById("seg-ex").style.width = `${(existing / base) * 100}%`;
+      document.getElementById("seg-prop").style.width = `${(newEmi / base) * 100}%`;
+      document.getElementById("seg-left").style.width = `${Math.max(0, (disposable / base) * 100)}%`;
+
+      document.getElementById("leg-exp").textContent = `${formatINR(expenses)} (${((expenses / income) * 100).toFixed(1)}%)`;
+      document.getElementById("leg-ex").textContent = `${formatINR(existing)} (${((existing / income) * 100).toFixed(1)}%)`;
+      document.getElementById("leg-prop").textContent = `${formatINR(newEmi)} (${((newEmi / income) * 100).toFixed(1)}%)`;
+      document.getElementById("leg-left").textContent = `${formatINR(disposable)} (${leftPct.toFixed(1)}%)`;
+
+      // Update Bottom Metric Cards
+      document.getElementById("res-emi").textContent = formatINR(newEmi);
+      document.getElementById("res-emi-note").textContent = appState.emiMode === "loan" ? "P·r·(1+r)^n ÷ ((1+r)^n − 1)" : "Direct EMI entered";
+
+      if (appState.emiMode === "loan") {
+        document.getElementById("res-int-lbl").textContent = "Total Interest";
+        document.getElementById("res-interest").textContent = formatINR(totalInterest);
+        document.getElementById("res-int-note").textContent = `${formatINR(totalRepay)} repaid − ${formatINR(principal)} borrowed`;
+      } else {
+        document.getElementById("res-int-lbl").textContent = "Annual Debt Outflow";
+        document.getElementById("res-interest").textContent = formatINR((existing + newEmi) * 12);
+        document.getElementById("res-int-note").textContent = `(${formatINR(existing)} + ${formatINR(newEmi)}) × 12 mos`;
+      }
+
+      const dispEl = document.getElementById("res-disp");
+      dispEl.textContent = formatINR(disposable);
+      dispEl.style.color = disposable < 0 ? "#dc2626" : "var(--text-main)";
+      document.getElementById("res-disp-note").textContent = `${formatINR(income)} − ${formatINR(expenses)} − ${formatINR(existing)} − ${formatINR(newEmi)}`;
+
+      document.getElementById("cibil-caveat").innerHTML = `<strong>CIBIL note:</strong> Selected band <strong>${appState.emiCibil}</strong> affects lender eligibility and interest rates, but never changes this monthly budget affordability result.`;
+
+      if (notify) showToast(`Result: ${verdict.title} (${foir.toFixed(1)}% FOIR)`);
+    }
+
+    async function loadBackendDatasets() {
+      if (window.location.protocol === "file:") return;
+      try {
+        const [cardsRes, offersRes] = await Promise.all([
+          fetch("/api/cards"),
+          fetch("/api/loan-offers")
+        ]);
+        if (cardsRes.ok) {
+          const data = await cardsRes.json();
+          if (Array.isArray(data.cards) && data.cards.length > 0) {
+            CARDS_CATALOG = data.cards;
+          }
+        }
+        if (offersRes.ok) {
+          const data = await offersRes.json();
+          if (Array.isArray(data.offers) && data.offers.length > 0) {
+            LOAN_OFFERS = data.offers;
+          }
+        }
+        renderCards();
+        renderOffers();
+      } catch (err) {
+        // Fallback to embedded datasets when backend is unavailable
+      }
+    }
+
+    /* =====================================================================
+       7. INITIALIZE ON PAGE LOAD
+       ===================================================================== */
+    window.addEventListener("DOMContentLoaded", () => {
+      loadProfile();
+      setCardType("all");
+      selectGoal("car");
+      showPage("register");
+      loadBackendDatasets();
+    });
+  </script>
+</body>
+</html>
