@@ -2,25 +2,144 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 
-// Load card data: try new JSON file, fallback to existing data file
+// ─── Load & normalize card data ───────────────────────────────────────────────
 const fs = require("fs");
+
+function normalizeCard(raw, defaultType) {
+  // Map fields from india_credit_debit_cards_154.json → flat schema used by frontend
+  const fees   = raw.fees   || {};
+  const rewards = raw.rewards || {};
+  const perks  = raw.perks  || {};
+  const elig   = raw.eligibility || {};
+
+  // Determine color based on tier
+  const tierColorMap = {
+    "Infinite": "#1a1a2e", "Signature": "#16213e", "Platinum": "#0a3d62",
+    "Gold": "#b8860b", "Classic": "#2c3e50", "Basic": "#4a4a4a"
+  };
+  const tier = raw.tier || "Classic";
+  const hasLounge = !!(perks.airport_lounge_access && perks.airport_lounge_access !== "None" && perks.airport_lounge_access !== "");
+  const annualFee = fees.annual_fee || 0;
+
+  return {
+    id:          raw.card_id || raw.id || `card-${Math.random().toString(36).slice(2)}`,
+    type:        (raw.card_type || defaultType || "Credit").toLowerCase(),
+    bank:        raw.issuer  || raw.bank || "Unknown Bank",
+    name:        raw.card_name || raw.name || "Card",
+    tier:        tier,
+    network:     raw.network || "Visa",
+    annualFee:   annualFee,
+    feeLabel:    annualFee === 0 ? "Free" : `₹${annualFee.toLocaleString("en-IN")}/yr`,
+    minBalance:  elig.min_annual_income_inr || 0,
+    atmLimit:    fees.atm_limit || 0,
+    posLimit:    fees.pos_limit || 0,
+    rewards:     rewards.reward_rate_percent || 1,
+    lounge:      perks.airport_lounge_access || "None",
+    hasLounge:   hasLounge,
+    forex:       fees.foreign_transaction_markup_percent || 3.5,
+    insurance:   perks.insurance || "None",
+    hasInsurance: !!(perks.insurance && perks.insurance !== "None"),
+    popular:     raw.popular || 0,
+    beginner:    tier === "Basic" || tier === "Classic",
+    color:       tierColorMap[tier] || "#2c3e50",
+    summary:     rewards.summary || `${tier} ${(raw.card_type||"Credit")} Card by ${raw.issuer || ""}`,
+    hasWaiver:   !!(fees.annual_fee_waiver_spend),
+    waiverSpend: fees.annual_fee_waiver_spend || null,
+    rates: {
+      online:  (rewards.online_rate_percent  || rewards.reward_rate_percent || 1) / 100,
+      dining:  (rewards.dining_rate_percent  || rewards.reward_rate_percent || 1) / 100,
+      travel:  (rewards.travel_rate_percent  || rewards.reward_rate_percent || 1) / 100,
+      utility: (rewards.utility_rate_percent || rewards.reward_rate_percent || 0.5) / 100,
+      offline: (rewards.offline_rate_percent || rewards.reward_rate_percent || 0.5) / 100,
+    }
+  };
+}
+
+function normalizeLoan(raw, idx) {
+  // Map fields from aura_wealth_indian_loan_database.json → flat schema
+  // Helper: extract a fact value by field name
+  const factVal = (field) => {
+    const f = (raw.facts || []).find(x => x.field === field);
+    return f ? f.value : null;
+  };
+  const factNorm = (field) => {
+    const f = (raw.facts || []).find(x => x.field === field);
+    return f && f.normalizedValue ? f.normalizedValue : null;
+  };
+
+  // Try to extract numeric interest rate
+  let rateMin = null, rateMax = null;
+  const rateNorm = factNorm("interestRate");
+  if (rateNorm) {
+    rateMin = rateNorm.minimumPercent || rateNorm.floorPercent || null;
+    rateMax = rateNorm.maximumPercent || rateNorm.ceilingPercent || null;
+  }
+  if (!rateMin) {
+    const rateStr = factVal("interestRate") || "";
+    const nums = rateStr.match(/[\d.]+/g);
+    if (nums && nums.length >= 2) { rateMin = parseFloat(nums[0]); rateMax = parseFloat(nums[1]); }
+    else if (nums && nums.length === 1) { rateMin = rateMax = parseFloat(nums[0]); }
+  }
+
+  // Category from loanType fact
+  const loanType = factVal("loanType") || raw.name || "";
+  let category = "Personal Loan";
+  const lt = loanType.toLowerCase();
+  if (lt.includes("home") || lt.includes("housing"))  category = "Home Loan";
+  else if (lt.includes("vehicle") || lt.includes("car") || lt.includes("auto")) category = "Auto Loan";
+  else if (lt.includes("education") || lt.includes("student")) category = "Education Loan";
+  else if (lt.includes("gold"))  category = "Gold Loan";
+  else if (lt.includes("business") || lt.includes("msme")) category = "Business Loan";
+  else if (lt.includes("personal")) category = "Personal Loan";
+
+  // Processing fee
+  let feePct = 1;
+  const feeNorm = factNorm("processingFee");
+  if (feeNorm && feeNorm.maximumPercent) feePct = feeNorm.maximumPercent;
+
+  // Bank name from raw.bankId or catalogue
+  const lender = (raw.catalogueRecord && raw.catalogueRecord.name)
+    ? raw.catalogueRecord.name
+    : raw.name || `Loan ${idx + 1}`;
+  const bankName = raw.bankId
+    ? raw.bankId.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase())
+    : lender;
+
+  return {
+    id:        raw.id || `loan-${idx}`,
+    category,
+    lender:    `${bankName} (${lender})`,
+    rateMin:   rateMin || 8.5,
+    rateMax:   rateMax || 18.0,
+    minCibil:  700,
+    feePct,
+    prepayPct: 0,
+    days:      5,
+    popular:   raw.cataloguePosition ? Math.max(0, 100 - raw.cataloguePosition) : 50,
+    summary:   raw.summary || loanType,
+    officialUrl: raw.officialUrl || null
+  };
+}
+
 let cardsData = [];
 try {
-  const newCardsPath = path.join(__dirname, "india_credit_debit_cards_154.json");
-  cardsData = JSON.parse(fs.readFileSync(newCardsPath, "utf8"));
-  console.log("Loaded card data from india_credit_debit_cards_154.json");
+  const raw = JSON.parse(fs.readFileSync(path.join(__dirname, "india_credit_debit_cards_154.json"), "utf8"));
+  const creditCards = (raw.credit_cards || []).map(c => normalizeCard(c, "Credit"));
+  const debitCards  = (raw.debit_cards  || []).map(c => normalizeCard(c, "Debit"));
+  cardsData = [...creditCards, ...debitCards];
+  console.log(`Loaded ${cardsData.length} cards from india_credit_debit_cards_154.json`);
 } catch (e) {
-  console.warn("Failed to load new card JSON, using fallback cards.json");
+  console.warn("Failed to load new card JSON, using fallback cards.json:", e.message);
   cardsData = require("./data/cards.json");
 }
-// Load loan data: try new JSON file, fallback to existing data file
+
 let offersData = [];
 try {
-  const newLoanPath = path.join(__dirname, "aura_wealth_indian_loan_database.json");
-  offersData = JSON.parse(fs.readFileSync(newLoanPath, "utf8"));
-  console.log("Loaded loan data from aura_wealth_indian_loan_database.json");
+  const raw = JSON.parse(fs.readFileSync(path.join(__dirname, "aura_wealth_indian_loan_database.json"), "utf8"));
+  offersData = (raw.products || []).map((p, i) => normalizeLoan(p, i));
+  console.log(`Loaded ${offersData.length} loan offers from aura_wealth_indian_loan_database.json`);
 } catch (e) {
-  console.warn("Failed to load new loan JSON, using fallback loan-offers.json");
+  console.warn("Failed to load new loan JSON, using fallback loan-offers.json:", e.message);
   offersData = require("./data/loan-offers.json");
 }
 
